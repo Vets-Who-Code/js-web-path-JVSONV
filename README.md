@@ -1,9 +1,10 @@
 # Introduction
-
+- hello
+*world*
 1. **VQS Program.** The VetsWhoCode Qualification Standard (VQS) program is a qualification
 system of basic Training Performance Objectives (TPO) designed to establish the minimum level of
 competency required for a member to successfully perform in their grade. This VQS is a compilation of
-the minimum knowledge and skills that an individual must demonstrate in order to qualify for
+the minim`um knowledge and skills that an individual must demonstrate in order to qualify for
 advancement. The objective of VQS is to standardize and facilitate these qualifications.
 1. **CONTENTS.** The VQS is divided into 12 sections. Each section is divided into subsections (issues list). The issues list can be found under the `Issues` tab of this Github Repository. Each issue is broken up into 3 sections:
     1. TPO: Each TPO is formatted using the Army's formula for training tasks to standard as in the following:
