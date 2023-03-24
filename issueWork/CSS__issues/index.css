@@ -21,11 +21,12 @@ body {
 
 .grid__container {
   width: 320px;
-  background-color: purple;
+  background-color: white;
 }
 
-.grid__container--white {
-  background-color: white;
+.grid__container--purple {
+  background-color: purple;
+  color: white;
 }
 
 .grid__container--gray {
@@ -34,7 +35,7 @@ body {
 
 .container {
   display: flex;
-  justify-content: center;
+  justify-content: space-around;
 }
 
 .container__image {
