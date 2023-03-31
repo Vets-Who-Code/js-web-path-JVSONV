@@ -1,29 +1,20 @@
 const body = document.querySelector("body");
-body.style.background = "black";
+
 const listElement = document.createElement("ul");
 listElement.innerText = "The red pill or the blue pill?";
 body.append(listElement);
+
 const redButton = document.createElement("button");
 redButton.id = "red";
 redButton.innerText = "Red pill";
+
 const blueButton = document.createElement("button");
 blueButton.id = "blue";
 blueButton.innerText = "Blue pill";
-body.append(blueButton);
-body.append(redButton);
+
+body.append(blueButton, redButton);
+
 const ul = document.querySelector("ul");
-function addListItem() {
-  const item = document.createElement("li");
-  ul.append(item);
-}
-const listItems = document.querySelector("li");
-function removeListItem() {
-  const child = ul.getElementsByTagName("li")[0];
-  if (!child) return;
-  ul.removeChild(child);
-}
-document.getElementById("red").addEventListener("click", addListItem);
-document.getElementById("blue").addEventListener("click", removeListItem);
 
 ul.addEventListener("click", (e) => {
   e.stopPropagation();
@@ -35,3 +26,21 @@ ul.addEventListener("click", (e) => {
     }
   }
 });
+
+function addListItem() {
+  const item = document.createElement("li");
+  ul.append(item);
+}
+
+const listItems = document.querySelector("li");
+
+function removeListItem() {
+  const child = ul.getElementsByTagName("li")[0];
+  if (!child) return;
+  ul.removeChild(child);
+}
+
+document.getElementById("red").addEventListener("click", removeListItem);
+document.getElementById("blue").addEventListener("click", addListItem);
+
+
