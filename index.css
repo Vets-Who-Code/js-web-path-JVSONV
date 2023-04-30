@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Basement Grotesque";
   src: url(./assets/fonts/BasementGrotesque-Black_v1.202.woff) format("woff");
+  font-display: swap;
 }
 
 /* I know not all of this is being utilized right now but I wanted to ask if I should make utility classes or not and gather suggestions on how the website looks first before I delete any of this information as I put in a lot of time researching propper dark mode application design 

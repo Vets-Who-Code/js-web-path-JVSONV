@@ -19,6 +19,12 @@
       href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Archivo:wght@300;400;600;700;800;900&display=swap"
       rel="stylesheet" />
     <link
+      rel="preload"
+      href="./assets/fonts/BasementGrotesque-Black_v1.202.woff"
+      as="font"
+      type="font/woff"
+      crossorigin />
+    <link
       rel="stylesheet"
       href="index.css" />
     <script
@@ -85,7 +91,7 @@
             id="contact-me"
             class="button"
             type="button"
-            aria-controls="#modal">
+            aria-controls="modal">
             Reach Out
           </button>
         </div>
@@ -187,7 +193,12 @@
             </li>
           </ul>
         </div>
-        <a class="course-work button" href="./pages/vetwhocode.html" target="_blank">Click here to view VetsWhoCode course work</a>
+        <a
+          class="course-work button"
+          href="./pages/vetwhocode.html"
+          target="_blank"
+          >Click here to view VetsWhoCode course work</a
+        >
       </section>
 
       <section
@@ -394,7 +405,7 @@
       id="contact-mobile"
       class="button button--mobile button--cta"
       type="button"
-      aria-controls="#modal">
+      aria-controls="modal">
       <img
         class="contact--mobile"
         src="./assets/icons/contact.png"
@@ -404,7 +415,8 @@
     <dialog
       class="modal"
       id="modal"
-      aria-hidden="true">
+      aria-hidden="true"
+      aria-modal="true">
       <form
         class="contact"
         action="#"
