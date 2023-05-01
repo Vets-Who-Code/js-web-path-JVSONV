@@ -73,7 +73,6 @@ mobileContactButton.addEventListener("click", () => {
 });
 
 modal.addEventListener("click", (e) => {
-  e.stopPropagation();
   if (
     e.target === modal ||
     e.target.type === "submit" ||
@@ -201,7 +200,6 @@ aboutModalButton.addEventListener("click", () => {
 // pointer.style.transform = "translateY(5%) rotate(90deg)";
 
 // Would love to use this but currently not sure if I can overcome the cursor acceleration I have an idea of how I might be able to but I need to do so testing and ask Schuster or someone else that is available.
-
 
 /*
   1.split innerText

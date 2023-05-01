@@ -231,7 +231,7 @@ main {
 }
 
 .button {
-  padding: 0.2em 0.5em 0;
+  padding-inline: 0.5em;
   color: var(--clr-secondary);
   font-family: var(--ff-heading);
   text-transform: uppercase;
