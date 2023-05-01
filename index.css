@@ -255,7 +255,7 @@ main {
 
 .hero__container {
   height: calc((100svh - 1px) / 2);
-  background-image: url("./assets/photos/z-yu-rR8o1kEBmMQ-unsplash.jpg");
+  background-image: url("./assets/photos/z-yu-rR8o1kEBmMQ-unsplash.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
