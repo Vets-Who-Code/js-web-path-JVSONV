@@ -152,10 +152,7 @@ svg {
 
 /*coming soon*/
 
-
 /********************* Headers ***********************/
-
-
 
 /*------------------- General Styling ---------------------*/
 
@@ -738,16 +735,19 @@ main {
     background-color: var(--bg-overlay-08dp);
   }
 
-  .primary-navigation[closing], .icon__close {
+  .primary-navigation[closing],
+  .icon__close {
     display: block;
     animation: slide-down 500ms reverse, fade-in 300ms reverse;
   }
 
-  .primary-navigation[opened], .icon__close {
+  .primary-navigation[opened],
+  .icon__close {
     display: block;
   }
 
-  .primary-navigation[opening], .icon__close {
+  .primary-navigation[opening],
+  .icon__close {
     display: block;
     animation: slide-down 500ms forwards, fade-in 500ms forwards;
   }
@@ -1026,7 +1026,7 @@ main {
 }
 
 @keyframes nav-slide-up {
-  0%{
+  0% {
     transform: translateY(0%);
   }
   100% {
