@@ -63,20 +63,23 @@ apiCallButton.addEventListener("click", () => {
         });
         const allFilms = await Promise.all(allPromises).catch((err) => {});
         const createCharacterElement = (character, filmArr) => {
-          const characterCard = makeElement("div", "", "card")
+          const characterCard = makeElement("div", "", "card");
           const dataElement = makeCharacterInfo(character, filmArr);
           dataContainer.append(characterCard);
           characterCard.append(...dataElement);
+          apiCallButton.disabled = false;
         };
         createCharacterElement(characterData, allFilms);
       };
       filmData(characterData);
-    }).catch((r) => {
+    })
+    .catch((r) => {
       console.log(r);
-      dataContainer.append(makeElement("p", `An error has occured: ${r} `, "error"));
+      dataContainer.append(
+        makeElement("p", `An error has occured: ${r} `, "error")
+      );
     })
     .finally(() => {
-      document.querySelector(".loading").remove()
-      apiCallButton.disabled = false;
+      document.querySelector(".loading").remove();
     });
 });
