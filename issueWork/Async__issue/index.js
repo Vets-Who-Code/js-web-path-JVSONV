@@ -36,6 +36,7 @@ const apiCallButton = document.querySelector(".call-out");
 const dataContainer = document.querySelector(".data-container");
 
 apiCallButton.addEventListener("click", () => {
+  apiCallButton.disabled = true;
   const randomNum = Math.floor(Math.random() * (83 - 1) + 1);
   if (document.querySelector(".card")) {
     document.querySelector(".card").remove();
@@ -74,5 +75,8 @@ apiCallButton.addEventListener("click", () => {
       console.log(r);
       dataContainer.append(makeElement("p", `An error has occured: ${r} `, "error"));
     })
-    .finally(() => document.querySelector(".loading").remove());
+    .finally(() => {
+      document.querySelector(".loading").remove()
+      apiCallButton.disabled = false;
+    });
 });
