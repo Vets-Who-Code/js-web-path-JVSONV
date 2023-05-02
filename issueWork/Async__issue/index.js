@@ -74,7 +74,6 @@ apiCallButton.addEventListener("click", () => {
       filmData(characterData);
     })
     .catch((r) => {
-      console.log(r);
       dataContainer.append(
         makeElement("p", `An error has occured: ${r} `, "error")
       );
