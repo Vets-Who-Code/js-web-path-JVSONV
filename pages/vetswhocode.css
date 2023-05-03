@@ -1,21 +1,25 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
 body {
+  padding: 1rem;
   background-color: black;
-  display: flex;
-  gap: 30px;
-  flex-direction: column;
-  align-items: center;
 }
 
 ul {
-  align-self: normal;
+  margin-top: 20px;
   text-align: center;
   color: white;
   padding: 0;
   min-height: 20rem;
 }
 
-ul, ul li {
-  border:5px solid white;
+ul,
+ul li {
+  border: 5px solid white;
 }
 
 .active {
@@ -23,10 +27,57 @@ ul, ul li {
 }
 
 button {
+  padding: 1rem;
+  display: block;
+  margin: 20px auto 0;
   width: 6rem;
+  color: white;
+  border: none;
   background-color: blue;
 }
 
 button:last-of-type {
   background-color: red;
+}
+
+button.call-out {
+  width: fit-content;
+  margin-inline: auto;
+  color: hsla(0, 0%, 100%, 87%);
+  background-color: cornflowerblue;
+}
+
+.api-title {
+  margin-inline: auto;
+  width: fit-content;
+  font-size: 2rem;
+}
+
+.card { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+.card ul, .card li {
+  border: none;
+  list-style: none;
+}
+
+.card ul {
+  min-height: initial;
+}
+
+.data-container {
+  padding: 2rem;
+  width: 100%;
+  min-height: 30rem;
+  color: hsla(0, 0%, 100%, 87%);
+  background-color: darkslateblue;
+}
+
+.loading {
+  text-align: center;
 }
