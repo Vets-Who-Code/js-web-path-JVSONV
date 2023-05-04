@@ -10,6 +10,8 @@
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": true,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "lib": ["dom", "es2017"],
+    "watch": true,
   }
 }
