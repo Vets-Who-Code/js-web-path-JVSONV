@@ -1,0 +1,21 @@
+{
+  "name": "js-web-path-jvsonv",
+  "version": "1.0.0",
+  "description": "Jason Vallery's Portfolio",
+  "source": "src/index.html",
+  "scripts": {
+    "start": "parcel",
+    "build": "parcel build",
+    "tsc": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "parcel": "^2.8.3"
+  },
+  "dependencies": {
+    "typescript": "^5.0.4"
+  }
+}
