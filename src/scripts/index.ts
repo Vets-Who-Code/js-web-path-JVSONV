@@ -1,6 +1,6 @@
 type objArr = { value: string }[];
 
-const objArrFunction = (arr: objArr, num: number) => {
+const objArrFunction = (arr: objArr, num: number): objArr => {
   for (let i = 0; i <= num; i++) {
     let j = 0;
     let randomLetters = "";
