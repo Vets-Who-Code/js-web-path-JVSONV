@@ -8,7 +8,6 @@ const App = () => {
 
   const addButtonHandler = () => {
     setCurrentCount((prevCount) => prevCount+=1);
-    console.log(currentCount)
   };
 
   const subtractButtonHandler = () => {
