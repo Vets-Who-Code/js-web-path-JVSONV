@@ -9,6 +9,12 @@ body {
   background-color: black;
 }
 
+main {
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: pageLoad 800ms ease-in 400ms forwards;
+}
+
 ul {
   margin-top: 20px;
   text-align: center;
@@ -96,6 +102,18 @@ button.call-out {
   background-size: 300%;
   overflow: hidden;
   animation: bg-animation 3.2s infinite alternate;
+}
+
+@keyframes pageLoad {
+  0% {
+    transform: translateY(-20);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }
 
 @keyframes bg-animation {

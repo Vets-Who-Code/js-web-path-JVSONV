@@ -1,8 +1,9 @@
-const body = document.querySelector("body");
+
+const listContainer = document.querySelector(".list-container");
 
 const listElement = document.createElement("ul");
 listElement.innerText = "The red pill or the blue pill?";
-body.append(listElement);
+listContainer.append(listElement);
 
 const redButton = document.createElement("button");
 redButton.id = "red";
@@ -12,7 +13,7 @@ const blueButton = document.createElement("button");
 blueButton.id = "blue";
 blueButton.innerText = "Blue pill";
 
-body.append(blueButton, redButton);
+listContainer.append(blueButton, redButton);
 
 const ul = document.querySelector("ul");
 
