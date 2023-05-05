@@ -20,7 +20,7 @@ const App = () => {
   };
 
   const backgroundColorHandler = () => {
-    divBackground?.classList.toggle("skittles");
+    divBackground!.classList.toggle("skittles");
   };
 
   return (
