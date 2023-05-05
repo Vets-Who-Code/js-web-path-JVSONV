@@ -17,5 +17,6 @@
     "sourceMap": true,
     "importHelpers": true,
     "declaration": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   }
 }

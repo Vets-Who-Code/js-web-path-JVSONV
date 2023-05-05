@@ -1,0 +1,12 @@
+.app {
+  padding: 4rem 0;
+  color: hsla(0, 0%, 100%, 0.87);
+  text-align: center;
+  font-size: 3rem;
+}
+
+.button-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}

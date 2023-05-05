@@ -1,15 +1,18 @@
 import React, { useState } from "react";
 import Button from "./Components/Button";
+import classes from "./App.module.css";
 
 const App = () => {
   const [currentCount, setCurrentCount] = useState(0);
+  const divBackground = document.getElementById("react-app");
 
   const addButtonHandler = () => {
-    setCurrentCount((prevCount) => prevCount++);
+    setCurrentCount((prevCount) => prevCount+=1);
+    console.log(currentCount)
   };
 
   const subtractButtonHandler = () => {
-    setCurrentCount((prevCount) => prevCount - 1 === 0 ? 0 : prevCount--);
+    setCurrentCount((prevCount) => (prevCount - 1 <= 0 ? 0 : prevCount-= 1));
   };
 
   const resetButtonHandler = () => {
@@ -17,20 +20,34 @@ const App = () => {
   };
 
   const backgroundColorHandler = () => {
-    const divBackground = document.getElementById("react-app");
-  }
+    divBackground?.classList.toggle("skittles");
+  };
 
   return (
-    <div>
+    <div className={classes.app}>
       <Button
-        innerText="Add"
-        onClickHandler={addButtonHandler}
+        innerText="Tast the rainbow"
+        onClickHandler={backgroundColorHandler}
+        class="rainbow"
       />
-      <Button
-        innerText="Subtract"
-        onClickHandler={subtractButtonHandler}
-      />
-      <Button innerText="Reset" onClickHandler={resetButtonHandler} />
+      <p>{currentCount}</p>
+      <div className={classes["button-container"]}>
+        <Button
+          innerText="Add"
+          onClickHandler={addButtonHandler}
+          class="add"
+        />
+        <Button
+          innerText="Subtract"
+          onClickHandler={subtractButtonHandler}
+          class="subtract"
+        />
+        <Button
+          innerText="Reset"
+          onClickHandler={resetButtonHandler}
+          class="reset"
+        />
+      </div>
     </div>
   );
 };
