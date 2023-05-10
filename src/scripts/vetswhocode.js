@@ -1,4 +1,3 @@
-
 const listContainer = document.querySelector(".list-container");
 
 const listElement = document.createElement("ul");
