@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "./CSS/Button.module.css";
+import * as classes from "./CSS/Button.module.css";
 
 type ButtonProps = {
   innerText: string;

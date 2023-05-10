@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import Button from "./Components/Button";
-import classes from "./App.module.css";
+import * as classes from "./App.module.css";
 
 const App = () => {
   const [currentCount, setCurrentCount] = useState(0);
-  const divBackground = document.getElementById("react-app");
+  const [animateBg, setAnimateBg] = useState(false);
 
-  const addButtonHandler = () => {
-    setCurrentCount((prevCount) => prevCount+=1);
-  };
+  function addButtonHandler() {
+    setCurrentCount((prevCount) => prevCount += 1);
+  }
 
   const subtractButtonHandler = () => {
     setCurrentCount((prevCount) => (prevCount - 1 <= 0 ? 0 : prevCount-= 1));
@@ -19,11 +19,11 @@ const App = () => {
   };
 
   const backgroundColorHandler = () => {
-    divBackground!.classList.toggle("skittles");
+    setAnimateBg(prev => !prev);
   };
 
   return (
-    <div className={classes.app}>
+    <div className={animateBg ? `${classes.app} ${classes.skittles}`: `${classes.app}`}>
       <Button
         innerText="Tast the rainbow"
         onClickHandler={backgroundColorHandler}

@@ -10,3 +10,19 @@
   gap: 20px;
   justify-content: center;
 }
+
+.app.skittles {
+  background-image: linear-gradient(45deg, #B39DDB, #ED9CD4, #FFA1B8, #FFB493, #FFD474, #F9F871);
+  background-size: 300%;
+  overflow: hidden;
+  animation: bg-animation 3.2s infinite alternate;
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
+}
