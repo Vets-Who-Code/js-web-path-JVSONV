@@ -1,0 +1,111 @@
+*,
+::before,
+::after {
+  box-sizing: border-box;
+}
+
+.body {
+  padding: 1rem;
+  background-color: black;
+}
+
+.main {
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: pageLoad 800ms ease-in 400ms forwards;
+}
+
+.list {
+  margin-top: 20px;
+  text-align: center;
+  color: white;
+  padding: 0;
+  min-height: 20rem;
+}
+
+.list,
+.list .list-item {
+  border: 5px solid white;
+}
+
+.active {
+  background-color: coral;
+}
+
+#blue,
+#red,
+.call-out {
+  padding: 1rem 2rem;
+  display: block;
+  margin: 20px auto 0;
+  color: white;
+  border: none;
+}
+
+#blue {
+  background-color: darkblue;
+}
+
+#red {
+  background-color: darkred;
+}
+
+button.call-out {
+  width: fit-content;
+  margin-inline: auto;
+  color: hsla(0, 0%, 100%, 87%);
+  background-color: cornflowerblue;
+}
+
+.api-title {
+  margin-inline: auto;
+  width: fit-content;
+  font-size: 2rem;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: fit-content;
+}
+
+
+.card ul,
+.card li {
+  border: none;
+  list-style: none;
+}
+
+.card ul {
+  min-height: initial;
+}
+
+.data-container {
+  padding: 2rem;
+  width: 100%;
+  min-height: 30rem;
+  color: hsla(0, 0%, 100%, 87%);
+  background-color: darkslateblue;
+}
+
+.loading {
+  text-align: center;
+}
+
+.react-app {
+  margin-bottom: 20px;
+}
+
+@keyframes pageLoad {
+  0% {
+    transform: translateY(-20);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

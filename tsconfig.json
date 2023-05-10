@@ -2,21 +2,60 @@
   "compilerOptions": {
     "target": "esnext",
     "experimentalDecorators": true,
-    "jsx": "react",
+    "jsx": "preserve",
     "module": "commonjs",
-    "rootDir": "./src",
+    "rootDir": "app",
     "isolatedModules": true,
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "lib": ["DOM", "ESNext"],
+    "lib": [
+      "DOM",
+      "ESNext"
+    ],
     "baseUrl": "src",
     "moduleResolution": "node",
     "sourceMap": true,
     "importHelpers": true,
     "declaration": true,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
-  }
+    "plugins": [
+      {
+        "name": "typescript-plugin-css-modules"
+      },
+      {
+        "name": "next"
+      }
+    ],
+    "allowJs": true,
+    "noEmit": true,
+    "incremental": true,
+    "resolveJsonModule": true
+  },
+  //   "include": [
+  //     "next-env.d.ts",
+  //     "**/*.ts",
+  //     "**/*.tsx",
+  //     "**/**/*.ts",
+  //     "**/**/*.tsx",
+  //     ".next/types/**/*.ts"
+  // , "app/page.tsx"  ],
+  "watchOptions": {
+    "excludeDirectories": [
+      "node_modules",
+      "src",
+      "issueWork"
+    ]
+  },
+  "exclude": [
+    "node_modules",
+    "src"
+  ],
+  "include": [
+    "next-env.d.ts",
+    ".next/types/**/*.ts",
+    "**/*.ts",
+    "**/*.tsx"
+  ]
 }

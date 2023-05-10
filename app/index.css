@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Basement Grotesque";
-  src: url(../assets/fonts/BasementGrotesque-Black_v1.202.woff) format("woff");
+  src: url(../pubilc/assets/fonts/BasementGrotesque-Black_v1.202.woff) format("woff");
   font-display: swap;
 }
 
@@ -252,7 +252,7 @@ main {
 
 .hero__container {
   height: calc((100svh - 1px) / 2);
-  background-image: url("../assets/photos/z-yu-rR8o1kEBmMQ-unsplash.webp");
+  background-image: url("../pubilc/assets/photos/z-yu-rR8o1kEBmMQ-unsplash.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;

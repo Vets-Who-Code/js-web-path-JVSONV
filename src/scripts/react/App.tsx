@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import Button from "./Components/Button";
-import * as classes from "./App.module.css";
+import Button from "../../../app/components/Utility_components/button";
+import classes from "./App.module.css";
 
 const App = () => {
   const [currentCount, setCurrentCount] = useState(0);
