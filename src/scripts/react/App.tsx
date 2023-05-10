@@ -23,12 +23,17 @@ const App = () => {
   };
 
   return (
-    <div className={animateBg ? `${classes.app} ${classes.skittles}`: `${classes.app}`}>
+    <div
+      className={
+        animateBg ? `${classes.app} ${classes.skittles}` : `${classes.app}`
+      }>
       <Button
         innerText="Tast the rainbow"
         onClickHandler={backgroundColorHandler}
         class="rainbow"
       />
+      <p>Keep Track!</p>
+      <p>The current count is:</p>
       <p>{currentCount}</p>
       <div className={classes["button-container"]}>
         <Button
