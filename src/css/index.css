@@ -416,7 +416,7 @@ main {
 }
 
 .about__me {
-  width: fit-content;
+  /* width: fit-content; */
   display: flex;
   align-items: start;
   position: relative;
@@ -424,10 +424,11 @@ main {
   left: calc(min(max(5%, 3vw)) - 1px);
 }
 
-.about__title,
+/* .about__title,
 .about__summary {
   flex-basis: 1;
-}
+} */
+
 
 .about__title,
 .about__title--mobile {

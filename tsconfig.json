@@ -2,7 +2,7 @@
   "compilerOptions": {
     "target": "esnext",
     "experimentalDecorators": true,
-    "jsxImportSource": "preact",
+    "jsx": "react",
     "module": "commonjs",
     "rootDir": "./src",
     "isolatedModules": true,
@@ -11,7 +11,12 @@
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "lib": ["dom", "es2017"],
-    "watch": true,
+    "lib": ["DOM", "ESNext"],
+    "baseUrl": "src",
+    "moduleResolution": "node",
+    "sourceMap": true,
+    "importHelpers": true,
+    "declaration": true,
+    "plugins": [{ "name": "typescript-plugin-css-modules" }]
   }
 }

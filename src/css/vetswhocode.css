@@ -9,6 +9,12 @@ body {
   background-color: black;
 }
 
+main {
+  transform: translateY(-20px);
+  opacity: 0;
+  animation: pageLoad 800ms ease-in 400ms forwards;
+}
+
 ul {
   margin-top: 20px;
   text-align: center;
@@ -26,18 +32,22 @@ ul li {
   background-color: coral;
 }
 
-button {
-  padding: 1rem;
+#blue,
+#red,
+.call-out {
+  padding: 1rem 2rem;
   display: block;
   margin: 20px auto 0;
-  width: 6rem;
   color: white;
   border: none;
-  background-color: blue;
 }
 
-button:last-of-type {
-  background-color: red;
+#blue {
+  background-color: darkblue;
+}
+
+#red {
+  background-color: darkred;
 }
 
 button.call-out {
@@ -53,7 +63,7 @@ button.call-out {
   font-size: 2rem;
 }
 
-.card { 
+.card {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -61,7 +71,9 @@ button.call-out {
   height: fit-content;
 }
 
-.card ul, .card li {
+
+.card ul,
+.card li {
   border: none;
   list-style: none;
 }
@@ -80,4 +92,36 @@ button.call-out {
 
 .loading {
   text-align: center;
+}
+
+.react-app {
+  margin-bottom: 20px;
+}
+
+.react-app.skittles {
+  background-image: linear-gradient(45deg, #B39DDB, #ED9CD4, #FFA1B8, #FFB493, #FFD474, #F9F871);
+  background-size: 300%;
+  overflow: hidden;
+  animation: bg-animation 3.2s infinite alternate;
+}
+
+@keyframes pageLoad {
+  0% {
+    transform: translateY(-20);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes bg-animation {
+  0% {
+    background-position: left;
+  }
+  100% {
+    background-position: right;
+  }
 }
