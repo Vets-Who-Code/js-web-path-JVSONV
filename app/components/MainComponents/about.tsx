@@ -1,18 +1,25 @@
+"use client";
 import Image from "next/image";
-import jason from "../../pubilc/assets/photos/jason_desktop.webp";
-import usmc from "../../pubilc/assets/photos/companies/marinecorps.webp";
-import costco from "../../pubilc/assets/photos/companies/costcologo.webp";
-import apex from "../../pubilc/assets/photos/companies/apex.webp";
-import vetsWhoCode from "../../pubilc/assets/photos/companies/vetswhocode.webp";
+import { useContext } from "react";
+import { ModalContext } from "../../store/modalCtxProvider";
+import apex from "/public/assets/photos/companies/apex.webp";
+import costco from "/public/assets/photos/companies/costcologo.webp";
+import usmc from "/public/assets/photos/companies/marinecorps.webp";
+import vetsWhoCode from "/public/assets/photos/companies/vetswhocode.webp";
+import jason from "/public/assets/photos/jason_desktop.webp";
 
-const About = () => {
+const about = () => {
+  const modalCtx = useContext(ModalContext);
+
   return (
     <section
       id="about"
       aria-label="About me">
       <div className="container--section">
         <header className="about__header">
-          <h2 className="about__header header header--about">Me Myself &amp; I</h2>
+          <h2 className="about__header header header--about">
+            Me Myself &amp; I
+          </h2>
         </header>
         <div className="about__me">
           <h3 className="about__title">ABOUT ME</h3>
@@ -132,7 +139,8 @@ const About = () => {
             <div className="button__wrapper">
               <button
                 className="button button--current"
-                type="button">
+                type="button"
+                onClick={modalCtx.showModalHandler}>
                 Reach out
               </button>
               <button
@@ -146,6 +154,6 @@ const About = () => {
       </div>
     </section>
   );
-}
+};
 
-export default About;
+export default about;

@@ -50,7 +50,7 @@
   background-color: darkred;
 }
 
-button.call-out {
+.call-out {
   width: fit-content;
   margin-inline: auto;
   color: hsla(0, 0%, 100%, 87%);
@@ -72,13 +72,13 @@ button.call-out {
 }
 
 
-.card ul,
-.card li {
+.card .list,
+.card .list-item {
   border: none;
   list-style: none;
 }
 
-.card ul {
+.card .list {
   min-height: initial;
 }
 

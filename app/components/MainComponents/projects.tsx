@@ -1,10 +1,10 @@
 import Link from "next/link";
 import Image from "next/image";
-import vibeCheck from "../../pubilc/assets/photos/imageOptimized.webp";
-import sheesh from "../../pubilc/assets/photos/imageOptimized (1).webp";
-import plug from "../../pubilc/assets/photos/imageOpt.webp";
+import vibeCheck from "/public/assets/photos/imageOptimized.webp";
+import sheesh from "/public/assets/photos/imageOptimized (1).webp";
+import plug from "/public/assets/photos/imageOpt.webp";
 
-const Projects = () => {
+const projects = () => {
   return (
     <section
       id="projects"
@@ -82,7 +82,7 @@ const Projects = () => {
       </div>
       <Link
         className="course-work button"
-        href="/vetsWhoCode"
+        href="/vetWhoCode"
         target="_blank">
         Click here to view VetsWhoCode course work
       </Link>
@@ -90,4 +90,4 @@ const Projects = () => {
   );
 };
 
-export default Projects;
+export default projects;

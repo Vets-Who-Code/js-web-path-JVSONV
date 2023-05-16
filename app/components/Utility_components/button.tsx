@@ -2,14 +2,28 @@ import React from "react";
 import classes from "./CSS/Button.module.css";
 
 type ButtonProps = {
-  innerText: string;
-  onClickHandler: () => void;
+  id: string | undefined;
   class: string;
+  type: "button" | "submit" | "reset" | undefined;
+  onClickHandler: () => void;
+  innerText: string;
+  ariaControls: string | undefined;
+  ariaExpanded: boolean | undefined;
+  ariaLabel: string | undefined;
 };
 
 const Button = (props: ButtonProps) => {
   return (
-    <button className={classes[props.class]} onClick={() => props.onClickHandler()}>{props.innerText}</button>
+    <button
+      id={props.id}
+      className={classes[props.class]}
+      onClick={() => props.onClickHandler()}
+      type={props.type}
+      aria-controls={props.ariaControls}
+      aria-expanded={props.ariaExpanded}
+      aria-label={props.ariaLabel}>
+      {props.innerText}
+    </button>
   );
 };
 

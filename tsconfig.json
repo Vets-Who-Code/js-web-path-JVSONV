@@ -11,10 +11,7 @@
     "strict": true,
     "noImplicitAny": true,
     "skipLibCheck": true,
-    "lib": [
-      "DOM",
-      "ESNext"
-    ],
+    "lib": ["DOM", "ESNext"],
     "baseUrl": "src",
     "moduleResolution": "node",
     "sourceMap": true,
@@ -33,29 +30,15 @@
     "incremental": true,
     "resolveJsonModule": true
   },
-  //   "include": [
-  //     "next-env.d.ts",
-  //     "**/*.ts",
-  //     "**/*.tsx",
-  //     "**/**/*.ts",
-  //     "**/**/*.tsx",
-  //     ".next/types/**/*.ts"
-  // , "app/page.tsx"  ],
   "watchOptions": {
-    "excludeDirectories": [
-      "node_modules",
-      "src",
-      "issueWork"
-    ]
+    "excludeDirectories": ["node_modules", "src", "issueWork"]
   },
-  "exclude": [
-    "node_modules",
-    "src"
-  ],
+  "exclude": ["node_modules", "src"],
   "include": [
     "next-env.d.ts",
-    ".next/types/**/*.ts",
     "**/*.ts",
-    "**/*.tsx"
+    "**/*.tsx",
+    ".next/types/**/*.ts",
+    "app/components/VetsWhoCode_Components/arrayManipulation.js"
   ]
 }

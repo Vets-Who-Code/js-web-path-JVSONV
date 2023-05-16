@@ -1,6 +1,6 @@
 @font-face {
   font-family: "Basement Grotesque";
-  src: url(../pubilc/assets/fonts/BasementGrotesque-Black_v1.202.woff) format("woff");
+  src: url(../public/assets/fonts/BasementGrotesque-Black_v1.202.woff) format("woff");
   font-display: swap;
 }
 
@@ -129,6 +129,7 @@ img,
 picture,
 svg {
   width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -252,7 +253,7 @@ main {
 
 .hero__container {
   height: calc((100svh - 1px) / 2);
-  background-image: url("../pubilc/assets/photos/z-yu-rR8o1kEBmMQ-unsplash.webp");
+  background-image: url("../public/assets/photos/z-yu-rR8o1kEBmMQ-unsplash.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -658,6 +659,8 @@ main {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  border: none;
+  background-color: transparent;
 }
 
 .input-wrapper {
@@ -753,6 +756,17 @@ main {
     animation: slide-down 500ms forwards, fade-in 500ms forwards;
   }
 
+  
+  .nav__list {
+    display: block;
+  }
+  
+  .list__item {
+    padding-inline: 1rem;
+    text-align: center;
+    font-size: var(--fs-600);
+  }
+  
   .mobile-nav-toggle {
     position: absolute;
     padding: 0.5rem;
@@ -765,17 +779,7 @@ main {
     z-index: 1;
     background-color: var(--bg-overlay-24dp);
   }
-
-  .nav__list {
-    display: block;
-  }
-
-  .list__item {
-    padding-inline: 1rem;
-    text-align: center;
-    font-size: var(--fs-600);
-  }
-
+  
   .mobile-nav-toggle[aria-expanded="true"] {
     background-color: transparent;
   }
@@ -888,6 +892,7 @@ main {
 
   .owner__photo {
     width: 40%;
+    height: auto;
     margin-inline: auto;
     margin-bottom: 2rem;
   }

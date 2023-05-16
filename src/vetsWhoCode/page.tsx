@@ -1,5 +1,5 @@
 import Script from "next/script";
-import "../Global_CSS/global.module.css";
+import "../global.module.css";
 
 export default function vetsWhoCode() {
   return (

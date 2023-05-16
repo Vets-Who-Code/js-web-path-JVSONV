@@ -1,15 +1,14 @@
 import { Archivo } from "next/font/google";
-import "./index.css";
+import Footer from "./components/Utility_Components/footer";
+import Modal from "./components/Utility_Components/modal";
+import Navigation from "./components/Utility_Components/navigation";
+import "./global.css";
+import ModalCtxProvider from "./store/modalCtxProvider";
 
 const archivo = Archivo({
   subsets: ["latin"],
   display: "swap",
 });
-
-export const metadata = {
-  description: "Jason Vallery's Portfolio",
-  title: "Jason Vallery's Portfolio",
-};
 
 export default function RootLayout({
   children,
@@ -18,7 +17,14 @@ export default function RootLayout({
 }): JSX.Element {
   return (
     <html lang="en">
-      <body className={`${archivo.className} body`}>{children}</body>
+      <body className={`${archivo.className} body`}>
+        <ModalCtxProvider>
+          <Navigation />
+          {children}
+          <Modal />
+          <Footer />
+        </ModalCtxProvider>
+      </body>
     </html>
   );
 }

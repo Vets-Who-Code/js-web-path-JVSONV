@@ -9,7 +9,7 @@ body {
   background-color: black;
 }
 
-main {
+.body {
   transform: translateY(-20px);
   opacity: 0;
   animation: pageLoad 800ms ease-in 400ms forwards;
