@@ -1,11 +1,10 @@
-"use client"
+"use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useState, useContext } from "react";
-import { ModalContext } from "../../store/modalCtxProvider";
+import { useContext, useState } from "react";
 import closeIcon from "../../../public/assets/icons/close.webp";
 import menuIcon from "../../../public/assets/icons/menu.webp";
-
+import { ModalContext } from "../../store/modalCtxProvider";
 
 const Navigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
@@ -54,7 +53,6 @@ const Navigation = () => {
             data-opended={isMobileNavOpen}>
             <ul
               className="nav__list"
-              role="navigation"
               aria-label="Primary Navigation">
               <li className="list__item">
                 <Link
