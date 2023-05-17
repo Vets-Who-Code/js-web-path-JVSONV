@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Basement Grotesque";
-  src: url(../public/assets/fonts/BasementGrotesque-Black_v1.202.woff) format("woff");
+  src: url(../public/assets/fonts/BasementGrotesque-Black_v1.202.woff)
+    format("woff");
   font-display: swap;
 }
 
@@ -253,7 +254,7 @@ main {
 
 .hero__container {
   height: calc((100svh - 1px) / 2);
-  background-image: url("../public/assets/photos/z-yu-rR8o1kEBmMQ-unsplash.webp");
+  background-image: url("../public/assets/photos/hero.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -263,7 +264,7 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   padding-block: 8rem;
   backdrop-filter: brightness(40%);
 }
@@ -419,7 +420,7 @@ main {
 .about__me {
   /* width: fit-content; */
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   position: relative;
   top: calc(7svh - 1px);
   left: calc(min(max(5%, 3vw)) - 1px);
@@ -429,7 +430,6 @@ main {
 .about__summary {
   flex-basis: 1;
 } */
-
 
 .about__title,
 .about__title--mobile {
@@ -555,7 +555,7 @@ main {
   margin-left: auto;
   margin-right: 1rem;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   max-width: 360px;
   position: relative;
   top: calc(-7svh - 1px);
@@ -648,7 +648,7 @@ main {
   gap: 40px;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   border-radius: 0.3rem;
   background-color: var(--bg-overlay-24dp);
 }
@@ -756,17 +756,16 @@ main {
     animation: slide-down 500ms forwards, fade-in 500ms forwards;
   }
 
-  
   .nav__list {
     display: block;
   }
-  
+
   .list__item {
     padding-inline: 1rem;
     text-align: center;
     font-size: var(--fs-600);
   }
-  
+
   .mobile-nav-toggle {
     position: absolute;
     padding: 0.5rem;
@@ -779,7 +778,7 @@ main {
     z-index: 1;
     background-color: var(--bg-overlay-24dp);
   }
-  
+
   .mobile-nav-toggle[aria-expanded="true"] {
     background-color: transparent;
   }

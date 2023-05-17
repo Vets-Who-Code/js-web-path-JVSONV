@@ -30,10 +30,10 @@
     "incremental": true,
     "resolveJsonModule": true
   },
-  "watchOptions": {
-    "excludeDirectories": ["node_modules", "src", "issueWork"]
-  },
-  "exclude": ["node_modules", "src"],
+  // "watchOptions": {
+  //   "excludeDirectories": ["node_modules", "src", "issueWork"]
+  // },
+  "exclude": ["node_modules", "src", ".next"],
   "include": [
     "next-env.d.ts",
     "**/*.ts",
