@@ -1,26 +1,11 @@
-// const makeElement = (tagname, innerText, classes) => {
-//   const element = document.createElement(tagname);
-//   element.classList = classes;
-//   element.innerText = innerText;
-//   return element;
-// };
+"use client";
+import { useState } from "react";
 
-// const makeFilmList = (filmsArr) => {
-//   const ulTag = document.createElement("ul");
-//   ulTag.innerText = "Films";
-//   filmsArr.forEach((film) => {
-//     ulTag.append(makeElement("li", film.title, "movie"));
-//   });
-//   return ulTag;
-// };
-
-// const makeCharacterInfo = (character, filmArr) => {
-//   return [
-//     makeElement("h1", character.name, "subject"),
-//     makeElement("p", `Birth Year : ${character.birth_year}`, "subject"),
-//     makeFilmList(filmArr),
-//   ];
-// };
+type StarWarsCharacterObj = {
+  name: string;
+  birthYear: string;
+  films: {title: string}[];
+};
 
 // const getFilm = async (film) => {
 //   const filmData = await fetch(film, {
@@ -35,7 +20,7 @@
 // const apiCallButton = document.querySelector(".call-out");
 // const dataContainer = document.querySelector(".data-container");
 
-// apiCallButton.addEventListener("click", () => {
+// const callAPIButton = () => {
 //   apiCallButton.disabled = true;
 //   const randomNum = Math.floor(Math.random() * (83 - 1) + 1);
 //   if (document.querySelector(".card")) {
@@ -82,3 +67,31 @@
 //       document.querySelector(".loading").remove();
 //     });
 // });
+
+const starWars = (props: StarWarsCharacterObj) => {
+  const [gettingData, setGettingData] = useState(false);
+
+  const standardCharacterDisplay = (
+    <>
+      <h1 className="subject">{props.name}</h1>
+      <p className="subject">Birth Year : {props.birthYear}</p>
+    </>
+  );
+
+  return (
+    <div>
+      <h1>Get a random Star Wars Character</h1>
+      <h2>Click below!</h2>
+      {gettingData && standardCharacterDisplay}
+      {gettingData && (
+        <ul className="film-list">
+          {props.films.map((film) => {
+            return <li className="movie">{film.title}</li>;
+          })}
+        </ul>
+      )}
+    </div>
+  );
+};
+
+export default starWars;
