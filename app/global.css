@@ -739,18 +739,13 @@ main {
     background-color: var(--bg-overlay-08dp);
   }
 
-  .primary-navigation[closing],
+  .primary-navigation.closing,
   .icon__close {
     display: block;
-    animation: slide-down 500ms reverse, fade-in 300ms reverse;
+    animation: nav-slide-up 500ms, fade-out 300ms;
   }
 
-  .primary-navigation[opened],
-  .icon__close {
-    display: block;
-  }
-
-  .primary-navigation[opening],
+  .primary-navigation.open,
   .icon__close {
     display: block;
     animation: slide-down 500ms forwards, fade-in 500ms forwards;
@@ -777,6 +772,10 @@ main {
     border-radius: 0.3rem;
     z-index: 1;
     background-color: var(--bg-overlay-24dp);
+  }
+
+  .icon__hamburger.show {
+    animation: slide-down 500ms forwards, fade-in 500ms forwards;
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {

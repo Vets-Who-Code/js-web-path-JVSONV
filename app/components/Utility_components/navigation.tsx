@@ -1,17 +1,33 @@
 "use client";
 import Image from "next/image";
 import Link from "next/link";
-import { useContext, useState } from "react";
+import { useContext, useRef, useState } from "react";
 import closeIcon from "../../../public/assets/icons/close.webp";
 import menuIcon from "../../../public/assets/icons/menu.webp";
 import { ModalContext } from "../../store/modalCtxProvider";
 
 const Navigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
   const modalCtx = useContext(ModalContext);
 
   const navToggleHandler = () => {
-    setIsMobileNavOpen((prev) => !prev);
+    setIsMobileNavOpen(!isMobileNavOpen);
+  };
+
+  const onOpenHandler = () => {
+    navRef.current!.onanimationend = null;
+    navRef.current!.classList.add("open");
+    navToggleHandler();
+  };
+
+  const onCloseHandler = () => {
+    navRef.current!.classList.remove("open");
+    navRef.current!.classList.add("closing");
+    navRef.current!.onanimationend = () => {
+      navRef.current!.classList.remove("closing");
+    };
+    navToggleHandler();
   };
 
   const openNav = (
@@ -20,6 +36,7 @@ const Navigation = () => {
       src={menuIcon}
       alt="Menu icon"
       aria-hidden="true"
+      onClick={onOpenHandler}
     />
   );
 
@@ -29,6 +46,7 @@ const Navigation = () => {
       src={closeIcon}
       alt="Close icon"
       aria-hidden="true"
+      onClick={onCloseHandler}
     />
   );
 
@@ -40,8 +58,7 @@ const Navigation = () => {
             className="mobile-nav-toggle"
             aria-controls="primary-navigation"
             aria-expanded={isMobileNavOpen}
-            aria-label="Menu button"
-            onClick={navToggleHandler}>
+            aria-label="Menu button">
             {isMobileNavOpen ? closeNav : openNav}
             <span className="sr-only">
               {isMobileNavOpen ? "Close Menu" : "Open Menu"}
@@ -50,7 +67,7 @@ const Navigation = () => {
           <nav
             className="primary-navigation"
             id="primary-navigation"
-            data-opended={isMobileNavOpen}>
+            ref={navRef}>
             <ul
               className="nav__list"
               aria-label="Primary Navigation">

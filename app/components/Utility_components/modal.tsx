@@ -9,13 +9,15 @@ const Modal = () => {
 
   const modalRef = useRef<HTMLDialogElement>(null);
   const closeButton = useRef<HTMLImageElement>(null);
+
   if (modalCtx.modalState) {
     modalRef.current!.showModal();
+    modalRef.current!.onanimationend = null;
   }
 
-  if (modalRef.current !== null) modalRef.current!.onanimationend = null;
-
-  const removeModal = (e: React.SyntheticEvent) => {
+  const removeModal = (
+    e: React.MouseEvent<HTMLDialogElement> | React.MouseEvent<HTMLImageElement>
+  ) => {
     e.stopPropagation();
     if (e.target === modalRef.current || e.target === closeButton.current) {
       modalRef.current!.setAttribute("closing", "");
@@ -34,7 +36,7 @@ const Modal = () => {
       aria-hidden="true"
       aria-modal="true"
       ref={modalRef}
-      onClick={removeModal}>
+      onClick={(e) => removeModal(e)}>
       <form
         className="contact"
         action="#"
@@ -48,7 +50,7 @@ const Modal = () => {
             alt="Close icon"
             aria-controls="modal"
             ref={closeButton}
-            onClick={removeModal}
+            onClick={(e) => removeModal(e)}
           />
         </button>
         <div className="input-wrapper">
