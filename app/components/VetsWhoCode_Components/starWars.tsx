@@ -1,10 +1,11 @@
 "use client";
 import { useState } from "react";
+import getData from "../Utility_Components/fetch";
 
 type StarWarsCharacterObj = {
   name: string;
   birthYear: string;
-  films: {title: string}[];
+  films: { title: string }[];
 };
 
 // const getFilm = async (film) => {
@@ -68,13 +69,18 @@ type StarWarsCharacterObj = {
 //     });
 // });
 
-const starWars = (props: StarWarsCharacterObj) => {
+const starWars = async (props: StarWarsCharacterObj) => {
   const [gettingData, setGettingData] = useState(false);
+  const randomNum = Math.floor(Math.random() * (83 - 1) + 1);
+  const characterResult = getData("people", randomNum);
+  const filmResults = 
+
+  // const [character] = await Promise.all([characterResult, filmResults])
 
   const standardCharacterDisplay = (
     <>
-      <h1 className="subject">{props.name}</h1>
-      <p className="subject">Birth Year : {props.birthYear}</p>
+      <h1 className="subject">{character.name}</h1>
+      <p className="subject">Birth Year : {character.birth_year}</p>
     </>
   );
 
@@ -85,7 +91,7 @@ const starWars = (props: StarWarsCharacterObj) => {
       {gettingData && standardCharacterDisplay}
       {gettingData && (
         <ul className="film-list">
-          {props.films.map((film) => {
+          {films.map((film) => {
             return <li className="movie">{film.title}</li>;
           })}
         </ul>
