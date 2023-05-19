@@ -1,5 +1,6 @@
 import { newArr, randomNum, objArrFunction } from "./tsArrayManipulation";
 import NotesList from "./NoteComponent/notesList";
+import StarWars from "./starWarsFetch";
 
 const main = () => {
 
@@ -7,6 +8,7 @@ const main = () => {
 
   return (
     <main>
+      <StarWars />
       <NotesList /> 
     </main>
   )
