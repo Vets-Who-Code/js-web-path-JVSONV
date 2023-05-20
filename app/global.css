@@ -160,6 +160,7 @@ svg {
 
 /* Structure */
 
+
 body {
   margin-inline: auto;
   color: var(--clr-neutral-400);
@@ -168,7 +169,8 @@ body {
   background-color: var(--clr-background-base);
 }
 
-main {
+main,
+header {
   transform: translateY(-20px);
   opacity: 0;
   animation: pageLoad 800ms ease-in 400ms forwards;
@@ -418,7 +420,7 @@ main {
 }
 
 .about__me {
-  /* width: fit-content; */
+  width: fit-content;
   display: flex;
   align-items: flex-start;
   position: relative;
