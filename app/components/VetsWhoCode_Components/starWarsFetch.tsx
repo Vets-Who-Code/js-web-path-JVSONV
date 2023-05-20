@@ -1,6 +1,8 @@
 "use client";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
+import classes from "../../CSS/starWars.module.css";
+import Button from "../Utility_Components/button";
 import CharacterData from "./StarWarsComponents/CharacterData";
 import FilmData from "./StarWarsComponents/FilmData";
 
@@ -53,12 +55,14 @@ const starWars = () => {
       setFilmsData(null);
     }
 
+    if (error !== null) setError(null);
+
     const delay = new Promise<unknown>((resolve) => setTimeout(resolve, 1000));
 
     setIsLoading(true);
 
     delay
-      .then(() => fetch(`https://swapi.dev/api/peope/${randomNum}`))
+      .then(() => fetch(`https://swapi.dev/api/people/${randomNum}`))
       .then((res) => {
         if (!res.ok) throw new Error(`Error ${res.status}`);
         return res.json();
@@ -96,7 +100,7 @@ const starWars = () => {
     return movieData;
   };
 
-  const loading = <p>Loading....</p>;
+  const loading = <p className={classes.loading}>Loading....</p>;
 
   const errorMessage = (
     <p className="error">
@@ -105,18 +109,32 @@ const starWars = () => {
   );
 
   return (
-    <div>
-      <h3>Like Star Wars? Click below to get a random character!</h3>
-      {isLoading && loading}
-      {characterData !== null && <CharacterData character={characterData} />}
-      {filmsData !== null && <FilmData movieList={filmsData} />}
-      {error !== null && (
-        <div>
-          <p className="error__message"><strong>{error}</strong></p>
-          {errorMessage}
+    <div className={classes.starwars__wrapper}>
+      <h3 className={classes.api__title}>
+        Like Star Wars? Click below to get a random character!
+      </h3>
+      <div className={classes.data__container}>
+        <div className={classes.api__data}>
+          {isLoading && <p className={classes.loading}>Loading....</p>}
+          {characterData !== null && (
+            <CharacterData character={characterData} />
+          )}
+          {filmsData !== null && <FilmData movieList={filmsData} />}
+          {error !== null && (
+            <div>
+              <p className="error__message">
+                <strong>{error}</strong>
+              </p>
+              {errorMessage}
+            </div>
+          )}
         </div>
-      )}
-      <button onClick={getCharacterData}>Get Character!</button>
+      </div>
+      <Button
+        innerText="Get Character!"
+        class="call__out"
+        onClickHandler={getCharacterData}
+      />
     </div>
   );
 };

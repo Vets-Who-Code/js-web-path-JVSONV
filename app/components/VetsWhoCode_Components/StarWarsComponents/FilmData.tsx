@@ -1,5 +1,6 @@
 import React from 'react';
 import { Films } from '../starWarsFetch';
+import classes from "../../../CSS/starWars.module.css"
 
 type Props = {
   movieList: Films[];
@@ -8,9 +9,9 @@ type Props = {
 const FilmData = (props: Props) => {
 
   return (
-    <ul className='movie__list'>
+    <ul className={`${classes.movie__list} ${classes.list}`}>Starred In:
       {props.movieList.map((movie) => {
-          return <li className='list__item' key={movie.uuid}>{movie.title}</li>;
+          return <li className={`${classes.movie} ${classes.list_item}`} key={movie.uuid}>{movie.title}</li>;
         })}
     </ul>
   );

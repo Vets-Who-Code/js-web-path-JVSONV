@@ -1,5 +1,6 @@
 import React from "react";
 import { Character } from "../starWarsFetch";
+import classes from "../../../CSS/starWars.module.css"
 
 type Props = {
   character: Character;
@@ -7,28 +8,24 @@ type Props = {
 
 const CharacterData = (props: Props) => {
   return (
-    <div className="character">
-      <h3 className="starwars__name">{props.character.name}</h3>
-      <div className="starwars__description">
-        <p className="description__subject">
-          <strong>Gender :</strong>
-          <span className="subject__detail">{props.character.gender}</span>
+    <div className={classes.character}>
+      <h3 className={classes.character__name}>{props.character.name}</h3>
+      <div className={classes.description}>
+        <p className={classes.description__subject}>
+          <strong className={classes.subject}>Gender :</strong>
+          <span className={classes.subject__detail}> {props.character.gender}</span>
         </p>
-        <p className="description__subject">
-          <strong>Birth Year: </strong>
-          <span className="subject__detail">{props.character.birth_year}</span>
+        <p className={classes.description__subject}>
+          <strong className={classes.subject}>Birth Year: </strong>
+          <span className={classes.subject__detail}> {props.character.birth_year}</span>
         </p>
-        <p className="description__subject">
-          <strong>Home World: </strong>
-          <span className="subject__detail">{props.character.homeworld}</span>
+        <p className={classes.description__subject}>
+          <strong className={classes.subject}>Height : </strong>
+          <span className={classes.subject__detail}> {props.character.height}</span>
         </p>
-        <p className="description__subject">
-          <strong>Height: </strong>
-          <span className="subject__detail">{props.character.height}</span>
-        </p>
-        <p className="description__subject">
-          <strong>Hair Color: </strong>
-          <span className="subject__detail">{props.character.hair_color}</span>
+        <p className={classes.description__subject}>
+          <strong className={classes.subject}>Hair Color : </strong>
+          <span className={classes.subject__detail}> {props.character.hair_color}</span>
         </p>
       </div>
     </div>

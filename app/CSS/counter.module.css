@@ -1,13 +1,14 @@
-.app {
+.counter {
   padding: 4rem 0;
   color: hsla(0, 0%, 100%, 0.87);
   text-align: center;
-  font-size: 3rem;
+  font-size: 2rem;
 }
 
-.button-container {
+.button__container {
   display: flex;
-  gap: 20px;
+  flex-wrap: wrap;
+  gap: 10px;
   justify-content: center;
 }
 

@@ -1,10 +1,11 @@
 .add,
 .subtract,
 .reset,
-.rainbow {
-  padding: 1rem 2rem;
+.rainbow,
+.call__out {
+  margin-block: 1.5rem;
+  padding: .2em 1em;
   display: block;
-  width: fit-content;
   color: white;
   border: none;
   border-radius: .3rem;
@@ -12,6 +13,13 @@
 
 .add {
   background-color: darkgreen;
+}
+
+.call__out {
+  width: fit-content;
+  margin-inline: auto;
+  color: hsla(0, 0%, 100%, 87%);
+  background-color: cornflowerblue;
 }
 
 .subtract {
