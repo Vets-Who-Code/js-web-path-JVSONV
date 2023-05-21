@@ -1,42 +1,41 @@
 "use client";
-import { useState } from "react";
+import { FormEvent, useState } from "react";
 
 type Props = {
-  addToNotes: (note: string) => void;
-  clearAll: () => void;
+  onSubmitNote: (note: string) => void;
 };
 
 const addNote = (props: Props) => {
-
   const [inputValue, setInputValue] = useState<string>("");
 
   const pushNote = (key?: string) => {
-    if (key && key === "Enter" || !key) {
-      props.addToNotes(inputValue);
+    if ((key && key === "Enter") || !key) {
+      props.onSubmitNote(inputValue);
       setInputValue("");
     }
+  };
+
+  const onSubmitNoteHandler = (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
+    e.preventDefault();
+    props.onSubmitNote(inputValue);
   }
 
   return (
-    <div className="add-note">
-      <label htmlFor="noteInput"></label>
-      <input
-        name="noteInput"
-        type="text"
-        onChange={(e) => setInputValue(e.target.value)}
-        onKeyDown={(e) => pushNote(e.key)}
-        value={inputValue}
-      />
-      <div className="button-container">
-        <button
-          type="button"
-          onClick={() => pushNote()}>
-          Add Note
-        </button>
-        <button type="button" onClick={props.clearAll}>Clear All</button>
-        <button type="button">Share Notes</button>
+    <form onSubmit={onSubmitNoteHandler}>
+      <div className="add-note">
+        <label htmlFor="noteInput">Note: </label>
+        <input
+          name="noteInput"
+          type="text"
+          onChange={(e) => setInputValue(e.target.value)}
+          onKeyDown={(e) => pushNote(e.key)}
+          value={inputValue}
+        />
+        <div className="button-container">
+          <button>Add Note</button>
+        </div>
       </div>
-    </div>
+    </form>
   );
 };
 

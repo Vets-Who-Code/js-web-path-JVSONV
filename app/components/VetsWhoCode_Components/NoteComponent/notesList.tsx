@@ -4,11 +4,7 @@ import AllNotes from "./allNotes";
 const notesList = () => {
   return (
     <div className="notes-container">
-      <form
-        action="#"
-        onKeyDown={(e) => (e.key === "Enter" ? e.preventDefault() : null)}>
-        <AllNotes />
-      </form>
+      <AllNotes />
     </div>
   );
 };
