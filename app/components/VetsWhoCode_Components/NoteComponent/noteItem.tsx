@@ -6,9 +6,9 @@ import confirmIcon from "/public/assets/icons/confirm.webp";
 import editIcon from "/public/assets/icons/edit.webp";
 
 type Props = {
-  uuid: string;
+  key: string;
   innerText: string;
-  removeNoteHandler: (uuid: string) => void;
+  removeNoteHandler: (key: string) => void;
 };
 
 type NoteObj = {
@@ -55,7 +55,7 @@ const noteItem = (props: Props) => {
         className="note__button--remove"
         type="button"
         onClick={() => {
-          props.removeNoteHandler(props.uuid);
+          props.removeNoteHandler(props.key);
         }}>
         <Image
           src={removeIcon}

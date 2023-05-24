@@ -6,9 +6,19 @@ import Button from "../Utility_Components/button";
 import CharacterData from "./StarWarsComponents/CharacterData";
 import FilmData from "./StarWarsComponents/FilmData";
 
-export type Character = Record<string, string | string[]>;
+export type Character = {
+  name: string;
+  gender: string;
+  birth_year: string;
+  height: string;
+  hair_color: string;
+  films: string[];
+};
 
-export type Films = Record<string, string | string[]>;
+export type Films = {
+  uuid: string;
+  title: string;
+};
 
 const starWars = () => {
   const [isLoading, setIsLoading] = useState(false);
@@ -37,7 +47,9 @@ const starWars = () => {
         return res.json();
       })
       .then(async (res) => {
-        await getAllMovieData(res.films);
+        console.log(res)
+        const allMovies = await getAllMovieData(res.films);
+        setFilmsData(allMovies);
         setIsLoading(false);
         setCharacterData(res);
         return res;
@@ -50,10 +62,7 @@ const starWars = () => {
   };
 
   const getAllMovieData = async (filmsList: string[]) => {
-    const allFilms = await Promise.all(
-      filmsList.map((film) => getFilmData(film))
-    );
-    setFilmsData(allFilms);
+    return await Promise.all(filmsList.map((film) => getFilmData(film)));
   };
 
   const getFilmData = async (film: string) => {
@@ -62,7 +71,7 @@ const starWars = () => {
       headers: { "Content-type": "application/json" },
     });
 
-    const movieData = await filmData.json();
+    const movieData: Films = await filmData.json();
 
     movieData.uuid = uuidv4();
 

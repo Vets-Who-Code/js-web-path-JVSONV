@@ -1,11 +1,11 @@
 "use client";
-import { FormEvent, useState } from "react";
+import { FC, FormEvent, useState } from "react";
 
 type Props = {
   onSubmitNote: (note: string) => void;
 };
 
-const addNote = (props: Props) => {
+const addNote: FC<Props> = (props) => {
   const [inputValue, setInputValue] = useState<string>("");
 
   const pushNote = (key?: string) => {
@@ -15,10 +15,12 @@ const addNote = (props: Props) => {
     }
   };
 
-  const onSubmitNoteHandler = (e: FormEvent<HTMLFormElement | HTMLButtonElement>) => {
+  const onSubmitNoteHandler = (
+    e: FormEvent<HTMLFormElement | HTMLButtonElement>
+  ) => {
     e.preventDefault();
     props.onSubmitNote(inputValue);
-  }
+  };
 
   return (
     <form onSubmit={onSubmitNoteHandler}>
