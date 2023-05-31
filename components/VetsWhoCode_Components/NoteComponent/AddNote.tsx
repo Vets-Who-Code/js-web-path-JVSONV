@@ -1,6 +1,6 @@
 "use client";
 import { FormEvent, useState } from "react";
-import classes from "../../../pages/CSS/Notebook.module.css";
+import classes from "../../../styles/Notebook.module.css";
 import { NoteObj, sendNoteHandler, deleteNoteBookHandler } from "../AllNotes";
 
 

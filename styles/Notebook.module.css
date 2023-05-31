@@ -1,6 +1,9 @@
 .notes__container {
   padding: 4rem 0;
   text-align: center;
+    transform: translateY(-20px);
+  opacity: 0;
+  animation: pageLoad 800ms ease-in 400ms forwards;
 }
 
 .notes__list {
@@ -112,4 +115,16 @@
 
 .button__add{ 
   background-color: darkgreen;
+}
+
+@keyframes pageLoad {
+  0% {
+    transform: translateY(-20);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
 }

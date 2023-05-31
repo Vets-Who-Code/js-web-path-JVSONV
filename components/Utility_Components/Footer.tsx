@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import gitHub from "../../../public/assets/icons/github.webp";
-import linkedIn from "../../../public/assets/icons/linkedin.webp";
-import resume from "../../../public/assets/icons/resume.webp";
+import gitHub from "../../public/assets/icons/github.webp";
+import linkedIn from "../../public/assets/icons/linkedin.webp";
+import resume from "../../public/assets/icons/resume.webp";
 
 const Footer = () => {
   return (

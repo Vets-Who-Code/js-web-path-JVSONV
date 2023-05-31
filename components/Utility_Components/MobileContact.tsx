@@ -2,6 +2,7 @@
 import Image from "next/image";
 import { useContext } from "react";
 import { ModalContext } from "../../pages/store/modalCtxProvider";
+import contact from "../../public/assets/icons/contact.webp"
 
 const MobileContactButton = () => {
   const modalCtx = useContext(ModalContext);
@@ -15,7 +16,7 @@ const MobileContactButton = () => {
       onClick={modalCtx.showModalHandler}>
       <Image
         className="contact--mobile"
-        src="./assets/icons/contact.webp"
+        src={contact}
         alt="Email me"
       />
       <span className="sr-only">Contact me</span>

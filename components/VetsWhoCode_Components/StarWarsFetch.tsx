@@ -1,7 +1,7 @@
 "use client";
 import { useState } from "react";
 import { v4 as uuidv4 } from "uuid";
-import classes from "../../pages/CSS/starWars.module.css";
+import classes from "../../styles/starWars.module.css";
 import Button from "../Utility_Components/Button";
 import CharacterData from "./StarWarsComponents/CharacterData";
 import FilmData from "./StarWarsComponents/FilmData";

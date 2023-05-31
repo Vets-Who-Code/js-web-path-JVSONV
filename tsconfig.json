@@ -68,5 +68,5 @@
     "**/*.tsx"
     // "components/VetsWhoCode_Components/arrayManipulation.js"
   ],
-  "exclude": ["node_modules", "src", "issueWork", "pages/layout.tsx"]
+  "exclude": ["node_modules", "src", "issueWork", "components/layout.tsx"]
 }

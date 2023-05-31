@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
-import classes from "../../../pages/CSS/Notebook.module.css";
+import classes from "../../../styles/Notebook.module.css";
 import { removeNoteHandler, updateNoteHandler } from "../AllNotes";
 import confirmIcon from "/public/assets/icons/confirm.webp";
 import editIcon from "/public/assets/icons/edit.webp";

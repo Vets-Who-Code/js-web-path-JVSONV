@@ -1,19 +1,19 @@
-import styles from "@/styles/Home.module.css";
-import Head from "next/head";
-import Image from "next/image";
+// import styles from "@/styles/Home.module.css";
+// import Head from "next/head";
+// import Image from "next/image";
 
-import { Archivo } from "next/font/google";
+// import { Archivo } from "next/font/google";
 import Main from "../components/MainComponents/Main";
-import Footer from "../components/Utility_Components/Footer";
-import MobileContactButton from "../components/Utility_Components/MobileContact";
-import Modal from "../components/Utility_Components/Modal";
-import Navigation from "../components/Utility_Components/Navigation";
-import ModalCtxProvider from "./store/modalCtxProvider";
+// import Footer from "../components/Utility_Components/Footer";
+// import MobileContactButton from "../components/Utility_Components/MobileContact";
+// import Modal from "../components/Utility_Components/Modal";
+// import Navigation from "../components/Utility_Components/Navigation";
+// import ModalCtxProvider from "./store/modalCtxProvider";
 
-const archivo = Archivo({ subsets: ["latin"] });
+// const archivo = Archivo({ subsets: ["latin"] });
 
 export default function Home() {
-  return <Main />;
+  return <Main />
 }
 
 // import { Metadata } from "next";

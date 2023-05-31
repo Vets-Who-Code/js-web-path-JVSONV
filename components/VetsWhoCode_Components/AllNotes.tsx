@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
 import AddNote from "./NoteComponent/AddNote";
 import NoteItem from "./NoteComponent/NoteItem";
-import classes from "../../pages/CSS/Notebook.module.css"
+import classes from "../../styles/Notebook.module.css"
 
 export type NoteObj = {
   _id: string;

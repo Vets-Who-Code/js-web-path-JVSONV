@@ -1,5 +1,5 @@
 import React from "react";
-import classes from "../../../pages/CSS/starWars.module.css";
+import classes from "../../../styles/starWars.module.css";
 import { Films } from "../StarWarsFetch";
 
 type Props = {
