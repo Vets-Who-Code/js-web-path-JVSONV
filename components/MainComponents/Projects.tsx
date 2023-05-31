@@ -14,6 +14,7 @@ const Projects = () => {
         <h2 className="project__header">Projects</h2>
       </header>
 
+      
       <div className="projects-container">
         <ul
           className="project__list"
