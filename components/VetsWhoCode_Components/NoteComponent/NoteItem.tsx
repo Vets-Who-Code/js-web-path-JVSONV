@@ -1,20 +1,16 @@
 "use client";
 import Image from "next/image";
 import { useState } from "react";
+import classes from "../../../pages/CSS/Notebook.module.css";
 import { removeNoteHandler, updateNoteHandler } from "../AllNotes";
-import removeIcon from "/public/assets/icons/closeSecondary.webp";
 import confirmIcon from "/public/assets/icons/confirm.webp";
 import editIcon from "/public/assets/icons/edit.webp";
+import removeIcon from "/public/assets/icons/remove.webp";
 
 type Props = {
   uid: string;
   note: string;
   onUpdateHandler: () => void;
-};
-
-type NoteObj = {
-  _id: string;
-  note: string;
 };
 
 type NoteItem = {
@@ -52,62 +48,61 @@ const NoteItem = (props: Props) => {
   };
 
   const noteEditor = (
-    <li className="note__item">
-      <form onSubmit={sendNoteUpdateHandler}>
-        <div className="add-note">
+    <li className={classes.note__item}>
+      <form onSubmit={sendNoteUpdateHandler} className={classes.update__form}>
+        <div className={classes.update__note}>
           <textarea
+            className={classes.note}
             value={noteObj.noteText}
             onChange={(e) => noteChangeHandler(e.currentTarget)}
           />
-          <div className="button-container">
-            <button
-              className="note__button--modifer"
-              type="button"
-              onClick={sendNoteUpdateHandler}>
-              <Image
-                src={confirmIcon}
-                alt={"Confirm Icon"}
-                title={"Confirm"}
-              />
-            </button>
-          </div>
+          <button
+            className={classes.note__button__edit}
+            type="button"
+            onClick={sendNoteUpdateHandler}>
+            <Image
+              src={confirmIcon}
+              alt={"Confirm Icon"}
+              title={"Confirm"}
+            />
+          </button>
         </div>
       </form>
     </li>
   );
 
-  return (
-      noteObj.editStatus ? (
-        noteEditor
-      ) : (
-        <li className="note__item">
-          <p
-            className="note"
-            onFocus={editStatusHandler}>
-            {noteObj.noteText}
-          </p>
-          <button
-            className="note__button--remove"
-            type="button"
-            onClick={deleteNoteHandler}>
-            <Image
-              src={removeIcon}
-              alt="Remove Icon"
-              aria-label="Remove note"
-            />
-          </button>
-          <button
-            className="note__button--modifer"
-            type="button"
-            onClick={editStatusHandler}>
-            <Image
-              src={editIcon}
-              alt={"Edit Icon"}
-              title={"Edit"}
-            />
-          </button>
-        </li>
-      )
+  return noteObj.editStatus ? (
+    noteEditor
+  ) : (
+    <li className={classes.note__item}>
+      <p
+        className={classes.note__text}
+        onFocus={editStatusHandler}>
+        {noteObj.noteText}
+      </p>
+      <div className={classes.note__edit__buttons}>
+        <button
+          className={`${classes.note__button} ${classes.note__button__remove}`}
+          type="button"
+          onClick={deleteNoteHandler}>
+          <Image
+            src={removeIcon}
+            alt="Remove Icon"
+            aria-label="Remove note"
+          />
+        </button>
+        <button
+          className={`${classes.note__button} ${classes.note__button__edit}`}
+          type="button"
+          onClick={editStatusHandler}>
+          <Image
+            src={editIcon}
+            alt={"Edit Icon"}
+            title={"Edit"}
+          />
+        </button>
+      </div>
+    </li>
   );
 };
 

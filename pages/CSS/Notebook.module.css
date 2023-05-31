@@ -1,0 +1,115 @@
+.notes__container {
+  padding: 4rem 0;
+  text-align: center;
+}
+
+.notes__list {
+  padding-top: 2rem;
+  min-height: 100px;
+  max-width: 1200px;
+  margin-inline: auto;
+  list-style: unset;
+  text-align: center;
+}
+
+.note__item {
+  margin-inline: auto;
+  max-width: 600px;
+  padding: 1rem 2rem;
+  display: flex;
+  gap: 1rem;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.note {
+  padding: 0.5rem 1rem;
+  text-align: left;
+  resize: none;
+  border: 2px solid transparent;
+  background-color: #292929;
+  color: hsl(0, 0%, 87%);
+}
+
+.note:focus {
+  border: 2px solid #b49edb;
+}
+
+.update__form {
+  width: 100%;
+}
+
+.update__note {
+  margin-inline: auto;
+  max-width: 800px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.button__container {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: space-around;
+}
+
+.add__note {
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  margin-inline: auto;
+}
+
+.note__label {
+  text-align: left;
+  font-size: 1.5rem;
+}
+
+.note__input {
+  padding: 1rem;
+  background-color: #292929;
+  border: none;
+  color: hsl(0, 0%, 87%);
+  resize: none;
+}
+
+.note__input:focus {
+  border: 2px solid #b49edb;
+}
+
+.note__edit__buttons {
+  display: flex;
+  gap: 1rem;
+}
+
+.note__button {
+  display: none;
+  border: 2px solid transparent;
+  background: transparent;
+  color: #b49edb;
+  width: 1.5rem;
+}
+
+.note__item:hover .note__button {
+  display: block;
+}
+
+.note__button__edit {
+  background: transparent;
+  border: none;
+}
+
+.button__clear,
+.button__add {
+  padding: .2em .4em;
+  border: none;
+  border-radius: .2em;
+  color: hsl(0, 0%, 87%);
+}
+
+.button__clear{
+  background-color: darkred;
+}
+
+.button__add{ 
+  background-color: darkgreen;
+}

@@ -1,20 +1,16 @@
 "use client";
-import { FC, FormEvent, useState } from "react";
-import { sendNoteHandler } from "../AllNotes";
+import { FormEvent, useState } from "react";
+import classes from "../../../pages/CSS/Notebook.module.css";
+import { NoteObj, sendNoteHandler, deleteNoteBookHandler } from "../AllNotes";
+
 
 type Props = {
   onUpdateHandler: () => void;
+  notebook: NoteObj[]
 };
 
 const AddNote = (props: Props) => {
   const [inputValue, setInputValue] = useState<string>("");
-
-  const pushNote = (key?: string) => {
-    if ((key && key === "Enter") || !key) {
-      sendNoteHandler({ note: inputValue });
-      setInputValue("");
-    }
-  };
 
   const onSubmitNoteHandler = async (
     e: FormEvent<HTMLFormElement | HTMLButtonElement>
@@ -25,19 +21,34 @@ const AddNote = (props: Props) => {
     props.onUpdateHandler();
   };
 
+  const deleteAllNotesHandler = async () => {
+    await deleteNoteBookHandler(props.notebook);
+    props.onUpdateHandler();
+  };
+
   return (
     <form onSubmit={onSubmitNoteHandler}>
-      <div className="add-note">
-        <label htmlFor="noteInput">Note: </label>
-        <input
+      <div className={classes.add__note}>
+        <label
+          htmlFor="noteInput"
+          className={classes.note__label}>
+          Note:{" "}
+        </label>
+        <textarea
+          className={classes.note__input}
           name="noteInput"
-          type="text"
           onChange={(e) => setInputValue(e.target.value)}
-          // onKeyDown={(e) => pushNote(e.key)}
           value={inputValue}
-        />
-        <div className="button-container">
-          <button>Add Note</button>
+          cols={30}
+          rows={5}></textarea>
+        <div className={classes.button__container}>
+          <button className={classes.button__add}>Add Note</button>
+          <button
+            className={classes.button__clear}
+            type="button"
+            onClick={deleteAllNotesHandler}>
+            Clear All
+          </button>
         </div>
       </div>
     </form>

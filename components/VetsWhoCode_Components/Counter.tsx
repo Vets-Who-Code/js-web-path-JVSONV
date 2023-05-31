@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import classes from "../../pages/CSS/counter.module.css";
+import classes from "../../pages/CSS/Counter.module.css";
 import Button from "../Utility_Components/Button";
 
 const Counter = () => {

@@ -1,8 +1,9 @@
 import { v4 as uuidv4 } from "uuid";
 import AddNote from "./NoteComponent/AddNote";
 import NoteItem from "./NoteComponent/NoteItem";
+import classes from "../../pages/CSS/Notebook.module.css"
 
-type NoteObj = {
+export type NoteObj = {
   _id: string;
   note: string;
 };
@@ -60,23 +61,26 @@ export const deleteNoteBookHandler = async (notebook: NoteObj[]) => {
   return await Promise.all(notebook.map(note => removeNoteHandler(note._id)))
 };
 
+
+
+
 type Props = {
   notebook: NoteObj[];
   onUpdateHandler: () => void;
 };
 
+
+
 const AllNotes = (props: Props) => {
-  console.log(props);
+
   const { notebook } = props;
 
-  const deleteAllNotesHandler = async () => {
-    await deleteNoteBookHandler(notebook);
-    props.onUpdateHandler()
-  };
-
   return (
-    <div className="notes-container">
-      <ul className="notes__list">
+    <div className={classes.notes__container}>
+      <h4>Need to write down some notes?</h4>
+      <p>Just enter any notes below and stay organized!</p>
+      <div className={classes.container}>
+        <ul className={classes.notes__list}>
         {notebook.length > 0 &&
           notebook.map((noteObj) => {
             return (
@@ -89,13 +93,11 @@ const AllNotes = (props: Props) => {
             );
           })}
       </ul>
-      <AddNote onUpdateHandler={props.onUpdateHandler} />
-      <button
-        type="button"
-        onClick={deleteAllNotesHandler}>
-        Clear All
-      </button>
-      <button className="share__note">Share Notes</button>
+      <AddNote onUpdateHandler={props.onUpdateHandler} notebook={props.notebook} />
+      {/*I might try and make this sharable later*/}
+      {/* <button className="share__note">Share Notes</button> */}
+      </div>
+      
     </div>
   );
 };

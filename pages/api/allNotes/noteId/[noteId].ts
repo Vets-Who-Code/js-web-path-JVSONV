@@ -8,7 +8,7 @@ export async function updateHandler(
   console.log(request.body);
   if (request.method === "PUT") {
     const res = await fetch(
-      `https://crudcrud.com/api/abc4c16406da459c9ae40cddebc93af3/allNotes/${noteId}`,
+      `https://crudcrud.com/api/b58d803c5edd40389b9eb138048116d3/allNotes/${noteId}`,
       {
         method: "PUT",
         headers: { "Content-type": "application/json" },
@@ -22,7 +22,7 @@ export async function updateHandler(
 
   if (request.method === "DELETE") {
     const res = await fetch(
-      `https://crudcrud.com/api/abc4c16406da459c9ae40cddebc93af3/allNotes/${noteId}`,
+      `https://crudcrud.com/api/b58d803c5edd40389b9eb138048116d3/allNotes/${noteId}`,
       {
         method: "DELETE",
         headers: { "Content-type": "application/json" },
