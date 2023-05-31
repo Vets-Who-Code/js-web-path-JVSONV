@@ -13,6 +13,7 @@ const Projects = () => {
       <header className="section__title">
         <h2 className="project__header">Projects</h2>
       </header>
+      
 
       <div className="projects-container">
         <ul
