@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 import plug from "../../public/assets/photos/imageOpt.webp";
-import sheesh from "../../public/assets/photos/imageOptimized (1).webp";
 import vibeCheck from "../../public/assets/photos/imageOptimized.webp";
+import sheesh from "../../public/assets/photos/imageOptimized1.webp";
 
 const Projects = () => {
   return (
@@ -13,7 +13,6 @@ const Projects = () => {
       <header className="section__title">
         <h2 className="project__header">Projects</h2>
       </header>
-      
 
       <div className="projects-container">
         <ul
