@@ -1,8 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
-import plug from "/public/assets/photos/imageOpt.webp";
-import sheesh from "/public/assets/photos/imageOptimized (1).webp";
-import vibeCheck from "/public/assets/photos/imageOptimized.webp";
+import plug from "../../public/assets/photos/imageOpt.webp";
+import sheesh from "../../public/assets/photos/imageOptimized (1).webp";
+import vibeCheck from "../../public/assets/photos/imageOptimized.webp";
 
 const Projects = () => {
   return (
