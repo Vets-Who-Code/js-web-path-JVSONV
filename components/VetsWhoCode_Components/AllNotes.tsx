@@ -13,7 +13,7 @@ type Note = {
 };
 
 export const getAllNotesHandler = async function () {
-  const res = await fetch(`http://localhost:3000/api/allNotes`, {
+  const res = await fetch(`/api/allNotes`, {
     method: "GET",
     headers: {
       "Content-type": "application / json",
@@ -26,7 +26,7 @@ export const getAllNotesHandler = async function () {
 };
 
 export const sendNoteHandler = async (note: Note) => {
-  const res = await fetch(`http://localhost:3000/api/allNotes`, {
+  const res = await fetch(`/api/allNotes`, {
     method: "POST",
     headers: { "Content-type": "application / json" },
     body: JSON.stringify(note),
@@ -37,7 +37,7 @@ export const sendNoteHandler = async (note: Note) => {
 };
 
 export const updateNoteHandler = async (note: NoteObj) => {
-  const res = await fetch(`http://localhost:3000/api/allNotes/noteId/${note._id}`, {
+  const res = await fetch(`/api/allNotes/noteId/${note._id}`, {
     method: "PUT",
     headers: { "Content-type": "application / json" },
     body: JSON.stringify({note: note.note}),
@@ -49,7 +49,7 @@ export const updateNoteHandler = async (note: NoteObj) => {
 
 export const removeNoteHandler = async (noteId : string) => {
   console.log("removing");
-  const res = await fetch(`http://localhost:3000/api/allNotes/noteId/${noteId}`, {
+  const res = await fetch(`/api/allNotes/noteId/${noteId}`, {
     method: "DELETE",
     headers: { "Content-type": "application/json" },
   });
