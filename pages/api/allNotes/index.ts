@@ -4,7 +4,7 @@ async function handler(request: NextApiRequest, response: NextApiResponse) {
   console.log(request.method);
   if (request.method === "GET") {
     const res = await fetch(
-      `https://crudcrud.com/api/7dd53537bf864555a6b0a6c4ae3d0f26/allNotes`,
+      `https://crudcrud.com/api/ebeed2f589f64e85a7391dc781a0802e/allNotes`,
       {
         method: "GET",
         headers: {
@@ -25,7 +25,7 @@ async function handler(request: NextApiRequest, response: NextApiResponse) {
     console.log(note);
 
     const res = await fetch(
-      `https://crudcrud.com/api/a780185ec0464c27adf81c0ae4b22900/allNotes`,
+      `https://crudcrud.com/api/ebeed2f589f64e85a7391dc781a0802e/allNotes`,
       {
         method: "POST",
         headers: {
@@ -40,7 +40,7 @@ async function handler(request: NextApiRequest, response: NextApiResponse) {
 
   if (request.method === "DELETE") {
     const res = await fetch(
-      `https://crudcrud.com/api/a780185ec0464c27adf81c0ae4b22900/allNotes`,
+      `https://crudcrud.com/api/ebeed2f589f64e85a7391dc781a0802e/allNotes`,
       {
         method: "DELETE",
         headers: { "Content-type": "application/json" },

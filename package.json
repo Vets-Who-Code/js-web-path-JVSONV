@@ -14,16 +14,16 @@
   "license": "ISC",
   "dependencies": {
     "@types/node": "20.2.5",
-    "@types/uuid": "^9.0.1",
     "@types/react": "18.2.7",
     "@types/react-dom": "18.2.4",
+    "@types/uuid": "^9.0.1",
     "eslint": "8.41.0",
     "eslint-config-next": "13.4.4",
     "next": "13.4.4",
     "react": "18.2.0",
     "react-dom": "18.2.0",
-    "typescript": "5.0.4",
     "sharp": "^0.32.1",
+    "typescript": "5.0.4",
     "uuid": "^9.0.0"
   }
 }

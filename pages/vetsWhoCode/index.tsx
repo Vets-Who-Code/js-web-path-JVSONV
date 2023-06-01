@@ -19,7 +19,7 @@ export const getServerSideProps: GetServerSideProps<{
   notes: NoteObj[];
 }> = async () => {
   const res = await fetch(
-    `https://crudcrud.com/api/a780185ec0464c27adf81c0ae4b22900/allNotes`,
+    `https://crudcrud.com/api/ebeed2f589f64e85a7391dc781a0802e/allNotes`,
     {
       method: "GET",
       headers: {
