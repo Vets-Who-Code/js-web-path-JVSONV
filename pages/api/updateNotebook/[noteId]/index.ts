@@ -26,7 +26,7 @@ export default async function handler(
       database.push(newData);
     }
 
-    await fsPromises.writeFile("./database.json", JSON.stringify(database));
+    await fsPromises.writeFile("/database.json", JSON.stringify(database));
     res.status(200).json({ message: "Data created/updated successfully" });
   } catch (err) {
     console.error(err);
