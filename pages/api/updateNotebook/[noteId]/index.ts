@@ -30,6 +30,6 @@ export default async function handler(
     res.status(200).json({ message: "Data created/updated successfully" });
   } catch (err) {
     console.error(err);
-    res.status(500).json({ error: "Internal server error" });
+    res.status(500).json({ error: "Server update error" });
   }
 }
