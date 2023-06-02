@@ -13,7 +13,7 @@ type Note = {
 };
 
 export const getAllNotesHandler = async function () {
-  const res = await fetch(`/api/allNotes`, {
+  const res = await fetch(`/api/notebook`, {
     method: "GET",
     headers: {
       "Content-type": "application / json",
@@ -26,33 +26,39 @@ export const getAllNotesHandler = async function () {
 };
 
 export const sendNoteHandler = async (note: Note) => {
-  const res = await fetch(`/api/allNotes`, {
+  let noteId = uuidv4();
+
+  const res = await fetch(`/api/updateNotebook/${noteId}`, {
     method: "POST",
     headers: { "Content-type": "application / json" },
-    body: JSON.stringify(note),
+    body: note.note,
   });
 
-  console.log("sent a note");
   return await res.json();
 };
 
 export const updateNoteHandler = async (note: NoteObj) => {
-  const res = await fetch(`/api/allNotes/noteId/${note._id}`, {
+
+  //old api url = /api/allNotes/noteId/${note._id}
+
+  const res = await fetch(`/api/updateNotebook/${note._id}`, {
     method: "PUT",
     headers: { "Content-type": "application / json" },
-    body: JSON.stringify({note: note.note}),
+    body: note.note,
   });
-  console.log(res, "updated a Notes");
+
 
   return await res.json();
 };
 
 export const removeNoteHandler = async (noteId : string) => {
-  console.log("removing");
-  const res = await fetch(`/api/allNotes/noteId/${noteId}`, {
-    method: "DELETE",
-    headers: { "Content-type": "application/json" },
-  });
+
+  const res = await fetch(`/api/deleteNote/${noteId}`,
+    {
+      method: "DELETE",
+      headers: { "Content-type": "application/json" },
+    }
+  );
   
   return await res.json()
 };
@@ -82,7 +88,9 @@ const AllNotes = (props: Props) => {
       <div className={classes.container}>
         <ul className={classes.notes__list}>
         {notebook.length > 0 &&
-          notebook.map((noteObj) => {
+            notebook.map((noteObj) => {
+            console.log(noteObj)
+            console.log(noteObj.note)
             return (
               <NoteItem
                 key={noteObj._id}

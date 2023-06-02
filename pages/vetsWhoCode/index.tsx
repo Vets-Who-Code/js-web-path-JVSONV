@@ -1,9 +1,12 @@
+import * as fsPromises from "fs/promises";
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { Metadata } from "next";
 
 import { useRouter } from "next/router";
 import AllNotes from "../../components/VetsWhoCode_Components/AllNotes";
 import Main from "../../components/VetsWhoCode_Components/Main";
+import Counter from "../../components/VetsWhoCode_Components/Counter";
+import StarWars from "../../components/VetsWhoCode_Components/StarWarsFetch";
 
 export const metadata: Metadata = {
   description: "Jason Vallery's VetsWhoCode Work",
@@ -18,21 +21,11 @@ type NoteObj = {
 export const getServerSideProps: GetServerSideProps<{
   notes: NoteObj[];
 }> = async () => {
-  const res = await fetch(
-    `https://crudcrud.com/api/ebeed2f589f64e85a7391dc781a0802e/allNotes`,
-    {
-      method: "GET",
-      headers: {
-        "Content-Type": "application/json",
-      },
-    }
-  );
-  console.log("rerendered");
-  const data = await res.json();
-
+  const data = await fsPromises.readFile("./database.json", "utf8");
+  const database = JSON.parse(data);
   return {
     props: {
-      notes: data,
+      notes: database,
     },
   };
 };
@@ -50,11 +43,14 @@ export default function VetsWhoCode({
 
   return (
     <>
-      <Main />
-      <AllNotes
-        notebook={notes}
-        onUpdateHandler={refreshData}
-      />
+      <Main>
+        <Counter />
+        <StarWars />
+        <AllNotes
+          notebook={notes}
+          onUpdateHandler={refreshData}
+        />
+      </Main>
     </>
   );
 }
