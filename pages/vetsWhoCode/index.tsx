@@ -4,8 +4,8 @@ import { Metadata } from "next";
 
 import { useRouter } from "next/router";
 import AllNotes from "../../components/VetsWhoCode_Components/AllNotes";
-import Main from "../../components/VetsWhoCode_Components/Main";
 import Counter from "../../components/VetsWhoCode_Components/Counter";
+import Main from "../../components/VetsWhoCode_Components/Main";
 import StarWars from "../../components/VetsWhoCode_Components/StarWarsFetch";
 
 export const metadata: Metadata = {
@@ -18,11 +18,12 @@ type NoteObj = {
   note: string;
 };
 
+
 export const getServerSideProps: GetServerSideProps<{
   notes: NoteObj[];
 }> = async () => {
-  // const data = await fsPromises.readFile("/pages/database.json", "utf8");
-  const database: NoteObj[] = [];
+  const data = await fsPromises.readFile("./pages/database.json", "utf8");
+  const database = JSON.parse(data);
   return {
     props: {
       notes: database,
