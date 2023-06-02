@@ -1,22 +1,72 @@
+// {
+//   "compilerOptions": {
+//     "target": "esnext",
+//     "experimentalDecorators": true,
+//     "jsx": "preserve",
+//     "module": "commonjs",
+//     "rootDir": "pages",
+//     "isolatedModules": true,
+//     "esModuleInterop": true,
+//     "forceConsistentCasingInFileNames": true,
+//     "strict": true,
+//     "noImplicitAny": true,
+//     "skipLibCheck": true,
+//     "lib": ["DOM", "ESNext"],
+//     "baseUrl": "src",
+//     "moduleResolution": "node",
+//     "sourceMap": true,
+//     "importHelpers": true,
+//     "declaration": true,
+//     "plugins": [
+//       {
+//         "name": "typescript-plugin-css-modules"
+//       },
+//       {
+//         "name": "next"
+//       }
+//     ],
+//     "allowJs": true,
+//     "noEmit": true,
+//     "incremental": true,
+//     "resolveJsonModule": true
+//   },
+//   // "watchOptions": {
+//   //   "excludeDirectories": ["node_modules", "src", "issueWork"]
+//   // },
+//   "exclude": ["node_modules", "src", ".next", "middleware.ts"],
+//   "include": [
+//     "next-env.d.ts",
+//     "**/*.ts",
+//     "**/*.tsx",
+//     ".next/types/**/*.ts",
+//     "pages/components/VetsWhoCode_Components/arrayManipulation.js"
+//   ]
+// }
 {
   "compilerOptions": {
-    "target": "esnext",
-    "experimentalDecorators": true,
-    "jsx": "react",
-    "module": "commonjs",
-    "rootDir": "./src",
-    "isolatedModules": true,
-    "esModuleInterop": true,
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "noImplicitAny": true,
+    "target": "es5",
+    "lib": ["dom", "dom.iterable", "esnext"],
+    "allowJs": true,
     "skipLibCheck": true,
-    "lib": ["DOM", "ESNext"],
-    "baseUrl": "src",
+    "strict": true,
+    "forceConsistentCasingInFileNames": true,
+    "noEmit": true,
+    "esModuleInterop": true,
+    "module": "esnext",
     "moduleResolution": "node",
-    "sourceMap": true,
-    "importHelpers": true,
-    "declaration": true,
-    "plugins": [{ "name": "typescript-plugin-css-modules" }]
-  }
+    "resolveJsonModule": true,
+    "isolatedModules": true,
+    "jsx": "preserve",
+    "incremental": true,
+    "paths": {
+      "@/*": ["./*"]
+    }
+  },
+  "include": [
+    "next-env.d.ts",
+    "**/*.ts",
+    "**/*.tsx"
+    // "components/VetsWhoCode_Components/arrayManipulation.js"
+  ],
+  "exclude": ["node_modules", "src", "issueWork", "components/layout.tsx"]
 }

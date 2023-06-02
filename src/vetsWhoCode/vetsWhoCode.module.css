@@ -4,18 +4,18 @@
   box-sizing: border-box;
 }
 
-body {
+.body {
   padding: 1rem;
   background-color: black;
 }
 
-.body {
+.main {
   transform: translateY(-20px);
   opacity: 0;
   animation: pageLoad 800ms ease-in 400ms forwards;
 }
 
-ul {
+.list {
   margin-top: 20px;
   text-align: center;
   color: white;
@@ -23,8 +23,8 @@ ul {
   min-height: 20rem;
 }
 
-ul,
-ul li {
+.list,
+.list .list-item {
   border: 5px solid white;
 }
 
@@ -50,7 +50,7 @@ ul li {
   background-color: darkred;
 }
 
-button.call-out {
+.call-out {
   width: fit-content;
   margin-inline: auto;
   color: hsla(0, 0%, 100%, 87%);
@@ -72,13 +72,13 @@ button.call-out {
 }
 
 
-.card ul,
-.card li {
+.card .list,
+.card .list-item {
   border: none;
   list-style: none;
 }
 
-.card ul {
+.card .list {
   min-height: initial;
 }
 
@@ -109,4 +109,3 @@ button.call-out {
     opacity: 1;
   }
 }
-

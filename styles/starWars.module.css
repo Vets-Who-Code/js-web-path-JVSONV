@@ -1,0 +1,65 @@
+
+.api__title {
+  text-align: center;
+  font-size: 2rem;
+}
+
+.api__data {
+  margin-inline: auto;
+}
+
+
+.character {
+  margin-inline: auto;
+  width: fit-content;
+}
+
+.character__name {
+  font-size: 3rem;
+}
+
+.description {
+  display: flex;
+  gap: 20px;
+  flex-wrap: wrap;
+}
+
+.list {
+  margin-top: 2rem;
+}
+
+.list, .movie {
+  border: none;
+  list-style: none;
+  text-align: center;
+}
+
+.data__container {
+  display: flex;
+  place-items: center;
+  padding: 2rem;
+  width: 100%;
+  min-height: 30rem;
+}
+
+.starwars__wrapper {
+  padding: 1rem;
+  color: hsla(0, 0%, 100%, 87%);
+  background-color: darkslateblue;
+}
+
+.loading {
+  width: fit-content;
+}
+
+@keyframes pageLoad {
+  0% {
+    transform: translateY(-20);
+    opacity: 0;
+  }
+
+  100% {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}

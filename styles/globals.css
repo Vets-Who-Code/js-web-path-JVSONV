@@ -1,6 +1,7 @@
 @font-face {
   font-family: "Basement Grotesque";
-  src: url(../assets/fonts/BasementGrotesque-Black_v1.202.woff) format("woff");
+  src: url(../public/assets/fonts/BasementGrotesque-Black_v1.202.woff)
+    format("woff");
   font-display: swap;
 }
 
@@ -129,6 +130,7 @@ img,
 picture,
 svg {
   width: 100%;
+  height: auto;
   display: block;
 }
 
@@ -166,7 +168,8 @@ body {
   background-color: var(--clr-background-base);
 }
 
-main {
+main,
+header {
   transform: translateY(-20px);
   opacity: 0;
   animation: pageLoad 800ms ease-in 400ms forwards;
@@ -252,7 +255,7 @@ main {
 
 .hero__container {
   height: calc((100svh - 1px) / 2);
-  background-image: url("../assets/photos/z-yu-rR8o1kEBmMQ-unsplash.webp");
+  background-image: url("../public/assets/photos/hero.webp");
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -262,7 +265,7 @@ main {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: end;
+  justify-content: flex-end;
   padding-block: 8rem;
   backdrop-filter: brightness(40%);
 }
@@ -416,9 +419,9 @@ main {
 }
 
 .about__me {
-  /* width: fit-content; */
+  width: fit-content;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   position: relative;
   top: calc(7svh - 1px);
   left: calc(min(max(5%, 3vw)) - 1px);
@@ -428,7 +431,6 @@ main {
 .about__summary {
   flex-basis: 1;
 } */
-
 
 .about__title,
 .about__title--mobile {
@@ -554,7 +556,7 @@ main {
   margin-left: auto;
   margin-right: 1rem;
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   max-width: 360px;
   position: relative;
   top: calc(-7svh - 1px);
@@ -647,7 +649,7 @@ main {
   gap: 40px;
   flex-direction: column;
   justify-content: center;
-  align-items: start;
+  align-items: flex-start;
   border-radius: 0.3rem;
   background-color: var(--bg-overlay-24dp);
 }
@@ -658,6 +660,8 @@ main {
   position: absolute;
   top: 1rem;
   right: 1rem;
+  border: none;
+  background-color: transparent;
 }
 
 .input-wrapper {
@@ -736,21 +740,26 @@ main {
     background-color: var(--bg-overlay-08dp);
   }
 
-  .primary-navigation[closing],
+  .primary-navigation.closing,
   .icon__close {
     display: block;
-    animation: slide-down 500ms reverse, fade-in 300ms reverse;
+    animation: nav-slide-up 500ms, fade-out 300ms;
   }
 
-  .primary-navigation[opened],
-  .icon__close {
-    display: block;
-  }
-
-  .primary-navigation[opening],
+  .primary-navigation.open,
   .icon__close {
     display: block;
     animation: slide-down 500ms forwards, fade-in 500ms forwards;
+  }
+
+  .nav__list {
+    display: block;
+  }
+
+  .list__item {
+    padding-inline: 1rem;
+    text-align: center;
+    font-size: var(--fs-600);
   }
 
   .mobile-nav-toggle {
@@ -766,14 +775,8 @@ main {
     background-color: var(--bg-overlay-24dp);
   }
 
-  .nav__list {
-    display: block;
-  }
-
-  .list__item {
-    padding-inline: 1rem;
-    text-align: center;
-    font-size: var(--fs-600);
+  .icon__hamburger.show {
+    animation: slide-down 500ms forwards, fade-in 500ms forwards;
   }
 
   .mobile-nav-toggle[aria-expanded="true"] {
@@ -888,6 +891,7 @@ main {
 
   .owner__photo {
     width: 40%;
+    height: auto;
     margin-inline: auto;
     margin-bottom: 2rem;
   }

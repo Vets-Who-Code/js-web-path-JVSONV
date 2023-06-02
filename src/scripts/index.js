@@ -89,107 +89,108 @@ modal.addEventListener("click", (e) => {
 
 */
 
-const tooltips = document.querySelectorAll(".tooltip");
-const topHotspot = document.querySelector(".hotspot");
-const container = document.querySelector(".hotspot-container");
-window.addEventListener("load", () => {
-  if (window.innerWidth <= 960) return;
-  contentPosition();
-});
-window.addEventListener("resize", () => {
-  if (window.innerWidth <= 960) return;
-  contentPosition();
-});
+// const tooltips = document.querySelectorAll(".tooltip");
+// const topHotspot = document.querySelector(".hotspot");
+// const container = document.querySelector(".hotspot-container");
+// window.addEventListener("load", () => {
+//   if (window.innerWidth <= 960) return;
+//   contentPosition();
+// });
+// window.addEventListener("resize", () => {
+//   if (window.innerWidth <= 960) return;
+//   contentPosition();
+// });
 
-function contentPosition() {
-  for (let i = 0; i < tooltips.length; i++) {
-    const hotspot = tooltips[i].querySelector(".hotspot");
-    const content = tooltips[i].querySelector(".tooltip__content");
-    const pointer = tooltips[i].querySelector(".border-pointer");
-    const bodyWidth = document.body.offsetWidth;
-    if (bodyWidth >= 1103) {
-      atLargeBody(hotspot, content, pointer);
-    } else {
-      atMediumBody(hotspot, content, pointer);
-    }
-  }
-}
+// function contentPosition() {
+//   for (let i = 0; i < tooltips.length; i++) {
+//     const hotspot = tooltips[i].querySelector(".hotspot");
+//     const content = tooltips[i].querySelector(".tooltip__content");
+//     const pointer = tooltips[i].querySelector(".border-pointer");
+//     const bodyWidth = document.body.offsetWidth;
+//     if (bodyWidth >= 1103) {
+//       atLargeBody(hotspot, content, pointer);
+//     } else {
+//       atMediumBody(hotspot, content, pointer);
+//     }
+//   }
+// }
 
-const atLargeBody = (hotspot, content, pointer) => {
-  content.style.width = "400px";
-  if (content.dataset.right === "true") {
-    content.style.left = `${
-      hotspot.offsetLeft + hotspot.offsetWidth + pointer.offsetWidth
-    }px`;
-    content.style.top = `${hotspot.offsetTop - content.offsetHeight / 2}px`;
-    pointer.style.left = `-${pointer.offsetWidth}px`;
-    pointer.style.transform = `translateY(${
-      content.offsetHeight / 2
-    }px) rotate(${-90}deg)`;
-  } else {
-    content.style.left =
-      hotspot.offsetLeft - content.offsetWidth - pointer.offsetHeight + "px";
-    content.style.top =
-      hotspot.offsetTop +
-      hotspot.offsetHeight +
-      pointer.offsetHeight / 2 -
-      content.offsetHeight / 2 +
-      "px";
-    pointer.style.left = `${content.offsetWidth}px`;
-    pointer.style.top = `${
-      hotspot.offsetTop -
-      hotspot.offsetHeight -
-      content.offsetHeight / 2 +
-      pointer.offsetHeight
-    }px`;
-    pointer.style.transform = "rotate(90deg)";
-  }
-};
+// const atLargeBody = (hotspot, content, pointer) => {
+//   content.style.width = "400px";
+//   if (content.dataset.right === "true") {
+//     content.style.left = `${
+//       hotspot.offsetLeft + hotspot.offsetWidth + pointer.offsetWidth
+//     }px`;
+//     content.style.top = `${hotspot.offsetTop - content.offsetHeight / 2}px`;
+//     pointer.style.left = `-${pointer.offsetWidth}px`;
+//     pointer.style.transform = `translateY(${
+//       content.offsetHeight / 2
+//     }px) rotate(${-90}deg)`;
+//   } else {
+//     content.style.left =
+//       hotspot.offsetLeft - content.offsetWidth - pointer.offsetHeight + "px";
+//     content.style.top =
+//       hotspot.offsetTop +
+//       hotspot.offsetHeight +
+//       pointer.offsetHeight / 2 -
+//       content.offsetHeight / 2 +
+//       "px";
+//     pointer.style.left = `${content.offsetWidth}px`;
+//     pointer.style.top = `${
+//       hotspot.offsetTop -
+//       hotspot.offsetHeight -
+//       content.offsetHeight / 2 +
+//       pointer.offsetHeight
+//     }px`;
+//     pointer.style.transform = "rotate(90deg)";
+//   }
+// };
 
-const atMediumBody = (hotspot, content, pointer) => {
-  if (hotspot.closest(".tooltip").classList.contains("usmc")) {
-    content.style.width = "350px";
-    content.style.top = `${hotspot.offsetTop - content.offsetHeight / 2}px`;
-    content.style.left = `${
-      hotspot.offsetLeft + hotspot.offsetWidth + pointer.offsetHeight / 2
-    }px`;
-    pointer.style.left = `-${pointer.offsetWidth}px`;
-    pointer.style.top = `${content.offsetHeight / 2}px`;
-    pointer.style.transform = "rotate(-90deg)";
-    return;
-  }
+// const atMediumBody = (hotspot, content, pointer) => {
+//   if (hotspot.closest(".tooltip").classList.contains("usmc")) {
+//     content.style.width = "350px";
+//     content.style.top = `${hotspot.offsetTop - content.offsetHeight / 2}px`;
+//     content.style.left = `${
+//       hotspot.offsetLeft + hotspot.offsetWidth + pointer.offsetHeight / 2
+//     }px`;
+//     pointer.style.left = `-${pointer.offsetWidth}px`;
+//     pointer.style.top = `${content.offsetHeight / 2}px`;
+//     pointer.style.transform = "rotate(-90deg)";
+//     return;
+//   }
 
-  if (content.dataset.right === "true") {
-    content.style.top = `${
-      hotspot.offsetTop - content.offsetHeight - pointer.offsetHeight / 2
-    }px`;
-    content.style.left = `${hotspot.offsetLeft - content.offsetWidth / 4}px`;
-    pointer.style.left = `${
-      content.offsetWidth / 4 +
-      hotspot.offsetWidth / 2 -
-      pointer.offsetWidth / 2
-    }px`;
-    pointer.style.top = `${content.offsetHeight}px`;
-    pointer.style.transform = "rotate(180deg)";
-    return;
-  }
-  content.style.width = "300px";
-  content.style.top = `${hotspot.offsetTop - content.offsetHeight / 1.6}px`;
-  content.style.left = `-${
-    content.offsetWidth - hotspot.offsetLeft + pointer.offsetWidth / 2
-  }px`;
-  pointer.style.left = `${
-    content.offsetWidth + pointer.offsetWidth / 2 - hotspot.offsetWidth / 2
-  }px`;
-  pointer.style.top = `${content.offsetHeight / 1.6}px`;
-  pointer.style.transform = "rotate(90deg)";
-};
+//   if (content.dataset.right === "true") {
+//     content.style.top = `${
+//       hotspot.offsetTop - content.offsetHeight - pointer.offsetHeight / 2
+//     }px`;
+//     content.style.left = `${hotspot.offsetLeft - content.offsetWidth / 4}px`;
+//     pointer.style.left = `${
+//       content.offsetWidth / 4 +
+//       hotspot.offsetWidth / 2 -
+//       pointer.offsetWidth / 2
+//     }px`;
+//     pointer.style.top = `${content.offsetHeight}px`;
+//     pointer.style.transform = "rotate(180deg)";
+//     return;
+//   }
+//   content.style.width = "300px";
+//   content.style.top = `${hotspot.offsetTop - content.offsetHeight / 1.6}px`;
+//   content.style.left = `-${
+//     content.offsetWidth - hotspot.offsetLeft + pointer.offsetWidth / 2
+//   }px`;
+//   pointer.style.left = `${
+//     content.offsetWidth + pointer.offsetWidth / 2 - hotspot.offsetWidth / 2
+//   }px`;
+//   pointer.style.top = `${content.offsetHeight / 1.6}px`;
+//   pointer.style.transform = "rotate(90deg)";
+// };
 
-const aboutModalButton = document.querySelector(".button--current");
+// const aboutModalButton = document.querySelector(".button--current");
 
-aboutModalButton.addEventListener("click", () => {
-  modal.showModal();
-});
+// aboutModalButton.addEventListener("click", () => {
+//   modal.showModal();
+// });
+
 // working on having tooltip say fully in veiw on scroll
 
 // content.style.left = `${

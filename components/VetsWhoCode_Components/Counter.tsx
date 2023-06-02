@@ -1,17 +1,18 @@
+"use client";
 import React, { useState } from "react";
-import Button from "../../../app/components/Utility_components/button";
-import classes from "./App.module.css";
+import classes from "../../styles/Counter.module.css";
+import Button from "../Utility_Components/Button";
 
-const App = () => {
+const Counter = () => {
   const [currentCount, setCurrentCount] = useState(0);
   const [animateBg, setAnimateBg] = useState(false);
 
   function addButtonHandler() {
-    setCurrentCount((prevCount) => prevCount += 1);
+    setCurrentCount((prevCount) => (prevCount += 1));
   }
 
   const subtractButtonHandler = () => {
-    setCurrentCount((prevCount) => (prevCount - 1 <= 0 ? 0 : prevCount-= 1));
+    setCurrentCount((prevCount) => (prevCount - 1 <= 0 ? 0 : (prevCount -= 1)));
   };
 
   const resetButtonHandler = () => {
@@ -19,13 +20,15 @@ const App = () => {
   };
 
   const backgroundColorHandler = () => {
-    setAnimateBg(prev => !prev);
+    setAnimateBg((prev) => !prev);
   };
 
   return (
     <div
       className={
-        animateBg ? `${classes.app} ${classes.skittles}` : `${classes.app}`
+        animateBg
+          ? `${classes.counter} ${classes.skittles}`
+          : `${classes.counter}`
       }>
       <Button
         innerText="Tast the rainbow"
@@ -35,7 +38,7 @@ const App = () => {
       <p>Keep Track!</p>
       <p>The current count is:</p>
       <p>{currentCount}</p>
-      <div className={classes["button-container"]}>
+      <div className={classes.button__container}>
         <Button
           innerText="Add"
           onClickHandler={addButtonHandler}
@@ -56,4 +59,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default Counter;
