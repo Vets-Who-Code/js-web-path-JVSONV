@@ -24,7 +24,7 @@ export const getServerSideProps: GetServerSideProps<{
 }> = async () => {
     const fsPromises = require("fs/promises")
     const data = await fsPromises.readFile(
-      "./database.json",
+      "../database.json",
       "utf8"
     );
     const database = JSON.parse(data);
