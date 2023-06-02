@@ -1,5 +1,5 @@
-import Counter from "./Counter";
-import StarWars from "./StarWarsFetch";
+// import Counter from "./Counter";
+// import StarWars from "./StarWarsFetch";
 import jsArray from "./arrayManipulation";
 import objArrFunction, { newArr, randomNum } from "./tsArrayManipulation";
 
