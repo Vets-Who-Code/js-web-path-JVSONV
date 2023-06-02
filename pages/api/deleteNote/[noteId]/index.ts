@@ -1,7 +1,9 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import * as fsPromises from "fs/promises";
+
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+  const fsPromises = require("fs/promises");
+
   try {
     const { noteId } = req.query;
     const data = await fsPromises.readFile("pages/database.json", "utf8");

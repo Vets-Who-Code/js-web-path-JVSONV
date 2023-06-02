@@ -1,10 +1,14 @@
-import * as fsPromises from "fs/promises";
+
 import { NextApiRequest, NextApiResponse } from "next";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+
+  const fsPromises = require("fs/promises");
+
+
   try {
     const { noteId } = req.query;
 
