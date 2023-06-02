@@ -46,11 +46,11 @@ export default function VetsWhoCode({
       <Main>
         <Counter />
         <StarWars />
+      </Main>
         <AllNotes
           notebook={notes}
           onUpdateHandler={refreshData}
         />
-      </Main>
     </>
   );
 }
