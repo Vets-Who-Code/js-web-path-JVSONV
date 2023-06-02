@@ -21,7 +21,7 @@ type NoteObj = {
 export const getServerSideProps: GetServerSideProps<{
   notes: NoteObj[];
 }> = async () => {
-  const data = await fsPromises.readFile("/database.json", "utf8");
+  const data = await fsPromises.readFile("/pages/database.json", "utf8");
   const database = JSON.parse(data);
   return {
     props: {
