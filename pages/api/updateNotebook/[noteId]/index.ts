@@ -8,7 +8,7 @@ export default async function handler(
   try {
     const { noteId } = req.query;
 
-    const data = await fsPromises.readFile("/pages/database.json", "utf8");
+    const data = await fsPromises.readFile("pages/database.json", "utf8");
 
     const database = JSON.parse(data);
 
@@ -26,7 +26,7 @@ export default async function handler(
       database.push(newData);
     }
 
-    await fsPromises.writeFile("./pages/database.json", JSON.stringify(database));
+    await fsPromises.writeFile("pages/database.json", JSON.stringify(database));
     res.status(200).json({ message: "Data created/updated successfully" });
   } catch (err) {
     console.error(err);
