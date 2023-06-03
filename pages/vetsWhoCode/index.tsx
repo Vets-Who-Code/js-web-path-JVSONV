@@ -36,7 +36,7 @@ export const getServerSideProps: GetServerSideProps<{
   const dbPath = path.join(process.cwd(), "database.json");
 
   // const realPath = await fsPromises.realpath("./database.json")
-  const data = await fsPromises.readFile(dbPath, "utf8");
+  const data = await fsPromises.readFile("database.json", "utf8");
   const database = JSON.parse(data);
   return {
     props: {
