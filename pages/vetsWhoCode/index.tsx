@@ -18,29 +18,31 @@ type NoteObj = {
   note: string;
 };
 
+export const getDBpath = () => {
+  const process = require("process");
+  const path = require("path");
+  const dbPath = path.join(process.cwd(), "database.json");
+  return dbPath;
+};
 
 export const getServerSideProps: GetServerSideProps<{
   notes: NoteObj[];
 }> = async () => {
-  const fsPromises = require("fs/promises")
+  const fsPromises = require("fs/promises");
   const process = require("process");
   const path = require("path");
-  
-  console.log(process.cwd())
-  const dbPath = path.join(process.cwd(), "database.json")
+
+  console.log(process.cwd());
+  const dbPath = path.join(process.cwd(), "database.json");
 
   // const realPath = await fsPromises.realpath("./database.json")
-    const data = await fsPromises.readFile(
-      dbPath,
-      "utf8"
-    );
-    const database = JSON.parse(data);
-    return {
-      props: {
-        notes: database,
-      },
-    };
-  
+  const data = await fsPromises.readFile(dbPath, "utf8");
+  const database = JSON.parse(data);
+  return {
+    props: {
+      notes: database,
+    },
+  };
 };
 
 export default function VetsWhoCode({
@@ -60,10 +62,10 @@ export default function VetsWhoCode({
         <Counter />
         <StarWars />
       </Main>
-        <AllNotes
-          notebook={notes}
-          onUpdateHandler={refreshData}
-        />
+      <AllNotes
+        notebook={notes}
+        onUpdateHandler={refreshData}
+      />
     </>
   );
 }
