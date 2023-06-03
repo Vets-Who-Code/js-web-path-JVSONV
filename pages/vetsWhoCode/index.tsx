@@ -1,4 +1,4 @@
-
+import * as fsPromises from "fs/promises";
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { Metadata } from "next";
 
@@ -22,9 +22,11 @@ type NoteObj = {
 export const getServerSideProps: GetServerSideProps<{
   notes: NoteObj[];
 }> = async () => {
-    const fsPromises = require("fs/promises")
+  const fsPromises = require("fs/promises")
+  
+  const realPath = await fsPromises.realpath("../../database.json")
     const data = await fsPromises.readFile(
-      "../database.json",
+      realPath,
       "utf8"
     );
     const database = JSON.parse(data);
