@@ -7,13 +7,16 @@ export default async function handler(
 ) {
 
   const fsPromises = require("fs/promises");
+  const process = require("process");
+  const path = require("path");
 
-  const realPath = fsPromises.realpath("../../../../database.json");
+  const dbPath = path.relative(process.cwd(), "/database.json" )
+  // const realPath = fsPromises.realpath("../../../../database.json");
 
   try {
     const { noteId } = req.query;
 
-    const data = await fsPromises.readFile(realPath, "utf8");
+    const data = await fsPromises.readFile(dbPath, "utf8");
 
     const database = JSON.parse(data);
 
@@ -32,7 +35,7 @@ export default async function handler(
     }
 
     await fsPromises.writeFile(
-      realPath,
+      dbPath,
       JSON.stringify(database)
     );
     res.status(200).json({ message: "Data created/updated successfully" });

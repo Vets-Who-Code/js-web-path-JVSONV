@@ -23,10 +23,15 @@ export const getServerSideProps: GetServerSideProps<{
   notes: NoteObj[];
 }> = async () => {
   const fsPromises = require("fs/promises")
+  const process = require("process");
+  const path = require("path");
   
-  const realPath = await fsPromises.realpath("../../database.json")
+  console.log(process.cwd())
+  const dbPath = path.join(process.cwd(), "database.json")
+
+  // const realPath = await fsPromises.realpath("./database.json")
     const data = await fsPromises.readFile(
-      realPath,
+      dbPath,
       "utf8"
     );
     const database = JSON.parse(data);
