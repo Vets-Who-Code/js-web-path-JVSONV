@@ -1,42 +1,31 @@
-import { NextApiRequest, NextApiResponse } from "next";
 import { promises as fsPromises } from "fs";
+import { NextApiRequest, NextApiResponse } from "next";
 import * as path from "path";
 import * as process from "process";
 
 export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
-  // const dbDir = path.join(process.cwd(), "database");
   const dbPath = path.join(process.cwd(), "database.json");
-  // const dbPath = path.relative(process.cwd(), "/database.json" )
-  // const realPath = fsPromises.realpath("../../../../database.json");
-
-  
 
   try {
-    const { noteId } = req.query;
+    const sentNote = JSON.parse(req.body);
+
+    const { _id } = sentNote;
 
     const data = await fsPromises.readFile(dbPath, "utf8");
 
     const database = JSON.parse(data);
 
-    const noteData = {
-      _id: noteId,
-      note: req.body
-    }
-
     const existingDataIndex = database.findIndex(
-      (note: { _id: string }) => note._id === noteId
+      (note: { _id: string }) => note._id === _id
     );
 
     if (existingDataIndex !== -1) {
-      database[existingDataIndex] = noteData;
+      database[existingDataIndex] = sentNote;
     } else {
-      database.push(noteData);
+      database.push(sentNote);
     }
 
-    const fileContents = await fsPromises.writeFile(
-      dbPath,
-      JSON.stringify(database)
-    );
+    await fsPromises.writeFile(dbPath, JSON.stringify(database));
     res.status(200).json({ message: "Note Recorded" });
   } catch (err) {
     console.error(err, "at api route");

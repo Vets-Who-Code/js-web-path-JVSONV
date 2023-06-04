@@ -3,7 +3,6 @@ import classes from "../../styles/Notebook.module.css";
 import AddNote from "./NoteComponent/AddNote";
 import NoteItem from "./NoteComponent/NoteItem";
 
-
 export type NoteObj = {
   _id: string;
   note: string;
@@ -25,17 +24,21 @@ export const getAllNotesHandler = async function () {
 };
 
 export const sendNoteHandler = async (note: Note) => {
-  let noteId = uuidv4();
+  const noteId = uuidv4();
 
+  const newNote = {
+    _id: noteId,
+    note: note.note,
+  };
 
-  const res = await fetch(`/api/notebook/updateNotebook/${noteId}`, {
+  const res = await fetch(`/api/notebook/updateNotebook/`, {
     method: "POST",
     headers: { "Content-type": "application / json" },
-    body: note.note,
+    body: JSON.stringify(newNote),
   });
-  console.log(res, "returned value")
-  const data = await res.json()
-  console.log(data, "return value")
+  console.log(res, "returned value");
+  const data = await res.json();
+  console.log(data, "return value");
 
   return data;
 };
@@ -43,10 +46,10 @@ export const sendNoteHandler = async (note: Note) => {
 export const updateNoteHandler = async (note: NoteObj) => {
   //old api url = /api/allNotes/noteId/${note._id}
 
-  const res = await fetch(`/api/notebook/updateNotebook/${note._id}`, {
+  const res = await fetch(`/api/notebook/updateNotebook`, {
     method: "PUT",
     headers: { "Content-type": "application / json" },
-    body: note.note,
+    body: JSON.stringify(note),
   });
 
   // console.log(res, "return value")
