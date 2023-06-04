@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import * as process from "node:process";
-import * as path from "node:path";
-import * as fsPromises from "node:fs/promises";
+import * as process from "process";
+import * as path from "path";
+import * as fsPromises from "fs/promises";
 
 export default async function handler(
   req: NextApiRequest,

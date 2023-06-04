@@ -1,7 +1,7 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import * as fsPromises from "node:fs/promises";
-import * as path from "node:path";
-import * as process from "node:process";
+import * as fsPromises from "fs/promises";
+import * as path from "path";
+import * as process from "process";
 
 export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
   // const dbDir = path.join(process.cwd(), "database");

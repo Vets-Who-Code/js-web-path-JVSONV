@@ -2,9 +2,9 @@ import { v4 as uuidv4 } from "uuid";
 import classes from "../../styles/Notebook.module.css";
 import AddNote from "./NoteComponent/AddNote";
 import NoteItem from "./NoteComponent/NoteItem";
-import * as fsPromises from "node:fs/promises";
-import * as path from "node:path";
-import * as process from "node:process";
+import * as fsPromises from "fs/promises";
+import * as path from "path";
+import * as process from "process";
 
 export type NoteObj = {
   _id: string;
