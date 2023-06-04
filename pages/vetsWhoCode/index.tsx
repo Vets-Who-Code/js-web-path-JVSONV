@@ -34,7 +34,7 @@ export const getServerSideProps: GetServerSideProps<{
 
   console.log(process.cwd());
   const dbPath = path.join(process.cwd(), "database.json");
-
+  console.log(dbPath)
   // const realPath = await fsPromises.realpath("./database.json")
   const data = await fsPromises.readFile("database.json", "utf8");
   const database = JSON.parse(data);

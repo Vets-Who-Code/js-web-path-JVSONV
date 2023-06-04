@@ -1,4 +1,3 @@
-
 import { NextApiRequest, NextApiResponse } from "next";
 import { getDBpath } from "../../../vetsWhoCode";
 
@@ -6,12 +5,11 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-
   const fsPromises = require("fs/promises");
   const process = require("process");
   const path = require("path");
 
-  const dbPath = getDBpath();
+  const dbPath = path.join(process.cwd(), "database.json");
   // const dbPath = path.relative(process.cwd(), "/database.json" )
   // const realPath = fsPromises.realpath("../../../../database.json");
 
@@ -36,10 +34,7 @@ export default async function handler(
       database.push(newData);
     }
 
-    await fsPromises.writeFile(
-      dbPath,
-      JSON.stringify(database)
-    );
+    await fsPromises.writeFile(dbPath, JSON.stringify(database));
     res.status(200).json({ message: "Data created/updated successfully" });
   } catch (err) {
     console.error(err);

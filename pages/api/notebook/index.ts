@@ -1,4 +1,3 @@
-
 import { NextApiResponse } from "next";
 import { getDBpath } from "../../vetsWhoCode";
 
@@ -7,7 +6,8 @@ export default async function readHandler(res: NextApiResponse) {
   const process = require("process");
   const path = require("path");
 
-  const dbPath = getDBpath();
+  const dbPath = path.join(process.cwd(), "database.json");
+
   // const realPath = fsPromises.realpath("../../../../database.json");
 
   try {
