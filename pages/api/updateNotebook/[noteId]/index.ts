@@ -10,13 +10,14 @@ export default async function handler(
   const path = require("path");
 
   const dbPath = path.join(process.cwd(), "database.json");
+  console.log(process.cwd())
   // const dbPath = path.relative(process.cwd(), "/database.json" )
   // const realPath = fsPromises.realpath("../../../../database.json");
 
   try {
     const { noteId } = req.query;
 
-    const data = await fsPromises.readFile("../../../../database.json", "utf8");
+    const data = await fsPromises.readFile("database.json", "utf8");
 
     const database = JSON.parse(data);
 
