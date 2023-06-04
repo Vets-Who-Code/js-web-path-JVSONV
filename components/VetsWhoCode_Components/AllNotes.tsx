@@ -2,6 +2,9 @@ import { v4 as uuidv4 } from "uuid";
 import classes from "../../styles/Notebook.module.css";
 import AddNote from "./NoteComponent/AddNote";
 import NoteItem from "./NoteComponent/NoteItem";
+import * as fsPromises from "node:fs/promises";
+import * as path from "node:path";
+import * as process from "node:process";
 
 export type NoteObj = {
   _id: string;
@@ -26,9 +29,9 @@ export const getAllNotesHandler = async function () {
 export const sendNoteHandler = async (note: Note) => {
   let noteId = uuidv4();
 
-  
+  const apiPath = path.join(process.cwd(), "api")
 
-  const res = await fetch(`/api/notebook/updateNotebook/noteId/${noteId}`, {
+  const res = await fetch(`${apiPath}/notebook/updateNotebook/noteId/${noteId}`, {
     method: "POST",
     headers: { "Content-type": "application / json" },
     body: note.note,
