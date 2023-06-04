@@ -31,7 +31,7 @@ export const sendNoteHandler = async (note: Note) => {
     note: note.note,
   };
 
-  const res = await fetch(`/api/notebook/updateNotebook/`, {
+  const res = await fetch(`api/notebook/updateNotebook/`, {
     method: "POST",
     headers: { "Content-type": "application / json" },
     body: JSON.stringify(newNote),
