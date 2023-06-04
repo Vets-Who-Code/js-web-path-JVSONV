@@ -8,8 +8,8 @@ export default async function handler(
   res: NextApiResponse
 ) {
 
-  const rootDir = process.cwd();
-  const dbPath = path.join(rootDir, "/database.json")
+  // const dbDir = path.join(process.cwd(), "database");
+  const dbPath = path.join(process.cwd(), "database.json")
   // const dbPath = path.relative(process.cwd(), "/database.json" )
   // const realPath = fsPromises.realpath("../../../../database.json");
 
