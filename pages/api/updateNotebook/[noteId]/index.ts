@@ -7,7 +7,7 @@ export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  
+
   const dbPath = path.join(process.cwd(), "database.json");
   console.log(process.cwd())
   // const dbPath = path.relative(process.cwd(), "/database.json" )
@@ -16,7 +16,7 @@ export default async function handler(
   try {
     const { noteId } = req.query;
 
-    const data = await fsPromises.readFile("database.json", "utf8");
+    const data = await fsPromises.readFile(dbPath, "utf8");
 
     const database = JSON.parse(data);
 
