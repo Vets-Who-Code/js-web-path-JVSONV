@@ -8,15 +8,14 @@ export default async function handler(
   res: NextApiResponse
 ) {
 
-  const dbPath = path.join(process.cwd(), "database.json");
-  console.log(process.cwd())
+  const rootDir = process.cwd();
   // const dbPath = path.relative(process.cwd(), "/database.json" )
   // const realPath = fsPromises.realpath("../../../../database.json");
 
   try {
     const { noteId } = req.query;
 
-    const data = await fsPromises.readFile(dbPath, "utf8");
+    const data = await fsPromises.readFile(path.join(rootDir, "/database.json"), "utf8");
 
     const database = JSON.parse(data);
 
