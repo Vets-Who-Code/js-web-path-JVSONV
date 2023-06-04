@@ -37,7 +37,7 @@ export default async function handler(
     await fsPromises.writeFile(dbPath, JSON.stringify(database));
     res.status(200).json({ message: "Data created/updated successfully" });
   } catch (err) {
-    console.error(err);
+    console.error(err, "at api route");
     res.status(500).json({ error: "Server update error" });
   }
 }

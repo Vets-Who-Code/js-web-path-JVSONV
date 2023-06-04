@@ -1,7 +1,7 @@
 import { v4 as uuidv4 } from "uuid";
+import classes from "../../styles/Notebook.module.css";
 import AddNote from "./NoteComponent/AddNote";
 import NoteItem from "./NoteComponent/NoteItem";
-import classes from "../../styles/Notebook.module.css"
 
 export type NoteObj = {
   _id: string;
@@ -20,8 +20,6 @@ export const getAllNotesHandler = async function () {
     },
   });
 
-  console.log("grabbed all Notes");
-
   return await res.json();
 };
 
@@ -33,12 +31,14 @@ export const sendNoteHandler = async (note: Note) => {
     headers: { "Content-type": "application / json" },
     body: note.note,
   });
+  console.log(res, "returned value")
+  const data = await res.json()
+  console.log(data, "return value")
 
-  return await res.json();
+  return data;
 };
 
 export const updateNoteHandler = async (note: NoteObj) => {
-
   //old api url = /api/allNotes/noteId/${note._id}
 
   const res = await fetch(`/api/updateNotebook/${note._id}`, {
@@ -47,38 +47,29 @@ export const updateNoteHandler = async (note: NoteObj) => {
     body: note.note,
   });
 
+  // console.log(res, "return value")
+  return await res.json();
+};
+
+export const removeNoteHandler = async (noteId: string) => {
+  const res = await fetch(`/api/deleteNote/${noteId}`, {
+    method: "DELETE",
+    headers: { "Content-type": "application/json" },
+  });
 
   return await res.json();
 };
 
-export const removeNoteHandler = async (noteId : string) => {
-
-  const res = await fetch(`/api/deleteNote/${noteId}`,
-    {
-      method: "DELETE",
-      headers: { "Content-type": "application/json" },
-    }
-  );
-  
-  return await res.json()
-};
-
 export const deleteNoteBookHandler = async (notebook: NoteObj[]) => {
-  return await Promise.all(notebook.map(note => removeNoteHandler(note._id)))
+  return await Promise.all(notebook.map((note) => removeNoteHandler(note._id)));
 };
-
-
-
 
 type Props = {
   notebook: NoteObj[];
   onUpdateHandler: () => void;
 };
 
-
-
 const AllNotes = (props: Props) => {
-
   const { notebook } = props;
 
   return (
@@ -87,25 +78,25 @@ const AllNotes = (props: Props) => {
       <p>Just enter any notes below and stay organized!</p>
       <div className={classes.container}>
         <ul className={classes.notes__list}>
-        {notebook.length > 0 &&
+          {notebook.length > 0 &&
             notebook.map((noteObj) => {
-            console.log(noteObj)
-            console.log(noteObj.note)
-            return (
-              <NoteItem
-                key={noteObj._id}
-                uid={noteObj._id}
-                note={noteObj.note}
-                onUpdateHandler={props.onUpdateHandler}
-              />
-            );
-          })}
-      </ul>
-      <AddNote onUpdateHandler={props.onUpdateHandler} notebook={props.notebook} />
-      {/*I might try and make this sharable later*/}
-      {/* <button className="share__note">Share Notes</button> */}
+              return (
+                <NoteItem
+                  key={noteObj._id}
+                  uid={noteObj._id}
+                  note={noteObj.note}
+                  onUpdateHandler={props.onUpdateHandler}
+                />
+              );
+            })}
+        </ul>
+        <AddNote
+          onUpdateHandler={props.onUpdateHandler}
+          notebook={props.notebook}
+        />
+        {/*I might try and make this sharable later*/}
+        {/* <button className="share__note">Share Notes</button> */}
       </div>
-      
     </div>
   );
 };
