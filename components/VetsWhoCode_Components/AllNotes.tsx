@@ -29,12 +29,15 @@ export const getAllNotesHandler = async function () {
 export const sendNoteHandler = async (note: Note) => {
   let noteId = uuidv4();
 
-  const apiPath = path.join(process.cwd(), "api")
+  const newNote = {
+    _id: noteId,
+    note: note.note
+  }
 
-  const res = await fetch(`${apiPath}/notebook/updateNotebook/noteId/${noteId}`, {
+  const res = await fetch(`/api/notebook/updateNotebook`, {
     method: "POST",
     headers: { "Content-type": "application / json" },
-    body: note.note,
+    body: JSON.stringify(newNote),
   });
   console.log(res, "returned value")
   const data = await res.json()
