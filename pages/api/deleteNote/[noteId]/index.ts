@@ -1,13 +1,13 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import { getDBpath } from "../../../vetsWhoCode";
+import * as process from "node:process";
+import * as path from "node:path";
+import * as fsPromises from "node:fs/promises";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-  const fsPromises = require("fs/promises");
-  const process = require("process");
-  const path = require("path");
+
 
   const dbPath = path.join(process.cwd(), "database.json");
   // const dbPath = path.relative(process.cwd(), "/database.json");
