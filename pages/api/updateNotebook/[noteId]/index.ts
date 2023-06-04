@@ -1,12 +1,16 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import * as process from "process";
-import * as path from "path";
-import * as fsPromises from "fs/promises";
+// import * as process from "process";
+// import * as path from "path";
+// import * as fsPromises from "fs/promises";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
+    const fsPromises = require("fs/promises");
+    const process = require("process");
+    const path = require("path");
+
 
   // const dbDir = path.join(process.cwd(), "database");
   const dbPath = path.join(process.cwd(), "database.json")
