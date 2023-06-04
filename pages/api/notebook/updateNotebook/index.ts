@@ -25,7 +25,7 @@ export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
       database.push(sentNote);
     }
 
-    await fsPromises.writeFile(dbPath, JSON.stringify(database));
+    await fsPromises.writeFile(dbPath, JSON.stringify(database), {flag: "r+" });
     res.status(200).json({ message: "Note Recorded" });
   } catch (err) {
     console.error(err, "at api route");
