@@ -1,5 +1,5 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import * as fsPromises from "fs/promises";
+import { promises as fsPromises } from "fs";
 import * as path from "path";
 import * as process from "process";
 
@@ -29,8 +29,8 @@ export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
       database.push(newData);
     }
 
-    await fsPromises.writeFile(dbPath, JSON.stringify(database));
-    res.status(200).json({ message: "Data created/updated successfully" });
+    const fileContents = await fsPromises.writeFile(dbPath, JSON.stringify(database));
+    res.status(200).json({message: "Note Recorded"});
   } catch (err) {
     console.error(err, "at api route");
     res.status(500).json({ error: "Server update error" });
