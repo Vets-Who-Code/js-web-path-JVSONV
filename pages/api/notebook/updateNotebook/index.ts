@@ -11,7 +11,7 @@ export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
 
     const { _id } = sentNote;
 
-    const data = await fsPromises.readFile(dbPath, {
+    const data = await fsPromises.readFile(`${dbPath}`, {
       encoding: "utf8",
       flag: "r+",
     });
@@ -28,11 +28,11 @@ export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
       database.push(sentNote);
     }
 
-    await fsPromises.writeFile(dbPath, JSON.stringify(database), {
+    await fsPromises.writeFile(`${dbPath}`, JSON.stringify(database), {
       encoding: "utf8",
       flag: "r+",
     });
-    return res.status(200).json({ message: "Note Recorded" });
+    return res.status(200).json(database);
   } catch (err) {
     console.error(err, "at api route");
     res.status(500).json({ error: "Server update error" });
