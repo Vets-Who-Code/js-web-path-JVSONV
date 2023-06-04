@@ -26,7 +26,7 @@ export const getAllNotesHandler = async function () {
 export const sendNoteHandler = async (note: Note) => {
   let noteId = uuidv4();
 
-  const res = await fetch(`/api/updateNotebook/${noteId}`, {
+  const res = await fetch(`/api/updateNotebook/noteId/${noteId}`, {
     method: "POST",
     headers: { "Content-type": "application / json" },
     body: note.note,
