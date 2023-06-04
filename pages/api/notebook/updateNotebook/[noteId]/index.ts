@@ -9,21 +9,22 @@ export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
   // const dbPath = path.relative(process.cwd(), "/database.json" )
   // const realPath = fsPromises.realpath("../../../../database.json");
 
-  type NoteObj = {
-    _id: string;
-    note: string;
-  };
+  
 
   try {
-    const { _id } = req.body;
+    const { noteId } = req.query;
+
     const data = await fsPromises.readFile(dbPath, "utf8");
 
-    const database: NoteObj[] = JSON.parse(data);
+    const database = JSON.parse(data);
 
-    const noteData: NoteObj = req.body;
+    const noteData = {
+      _id: noteId,
+      note: req.body
+    }
 
     const existingDataIndex = database.findIndex(
-      (note: { _id: string }) => note._id === _id
+      (note: { _id: string }) => note._id === noteId
     );
 
     if (existingDataIndex !== -1) {
