@@ -49,7 +49,7 @@ export const sendNoteHandler = async (note: Note) => {
 export const updateNoteHandler = async (note: NoteObj) => {
   //old api url = /api/allNotes/noteId/${note._id}
 
-  const res = await fetch(`/api/notebook/updateNotebook/noteId/${note._id}`, {
+  const res = await fetch(`/api/notebook/updateNotebook`, {
     method: "PUT",
     headers: { "Content-type": "application / json" },
     body: note.note,
