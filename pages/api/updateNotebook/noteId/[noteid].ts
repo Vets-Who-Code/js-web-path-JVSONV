@@ -20,6 +20,7 @@ export default async function handler(
 
     const database = JSON.parse(data);
 
+    
     const newData = {
       _id: noteId,
       note: req.body,
