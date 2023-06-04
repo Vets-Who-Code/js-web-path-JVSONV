@@ -3,7 +3,7 @@ import * as process from "node:process";
 import * as path from "node:path";
 import * as fsPromises from "node:fs/promises";
 
-export default async function handler(
+export async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
@@ -42,3 +42,5 @@ export default async function handler(
     res.status(500).json({ error: "Server update error" });
   }
 }
+
+export default handler;
