@@ -26,7 +26,7 @@ export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
     }
 
     await fsPromises.writeFile(dbPath, JSON.stringify(database), {flag: "r+" });
-    res.status(200).json({ message: "Note Recorded" });
+    return res.status(200).json({ message: "Note Recorded" });
   } catch (err) {
     console.error(err, "at api route");
     res.status(500).json({ error: "Server update error" });
