@@ -1,15 +1,12 @@
 import { NextApiRequest, NextApiResponse } from "next";
-// import * as process from "process";
-// import * as path from "path";
-// import * as fsPromises from "fs/promises";
+import * as process from "node:process";
+import * as path from "node:path";
+import * as fsPromises from "node:fs/promises";
 
 export default async function handler(
   req: NextApiRequest,
   res: NextApiResponse
 ) {
-    const fsPromises = require("fs/promises");
-    const process = require("process");
-    const path = require("path");
 
 
   // const dbDir = path.join(process.cwd(), "database");
@@ -19,7 +16,6 @@ export default async function handler(
 
   try {
     const { noteId } = req.query;
-
     const data = await fsPromises.readFile(dbPath, "utf8");
 
     const database = JSON.parse(data);
@@ -29,7 +25,7 @@ export default async function handler(
       note: req.body,
     };
     const existingDataIndex = database.findIndex(
-      (note: { _id: string; note: string }) => note._id === noteId
+      (note: { _id: string}) => note._id === noteId
     );
 
     if (existingDataIndex !== -1) {
