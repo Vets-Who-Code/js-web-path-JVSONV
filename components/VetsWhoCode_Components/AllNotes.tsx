@@ -26,6 +26,7 @@ export const getAllNotesHandler = async function () {
 export const sendNoteHandler = async (note: Note) => {
   let noteId = uuidv4();
 
+  
 
   const res = await fetch(`/api/notebook/updateNotebook/noteId/${noteId}`, {
     method: "POST",
@@ -42,7 +43,7 @@ export const sendNoteHandler = async (note: Note) => {
 export const updateNoteHandler = async (note: NoteObj) => {
   //old api url = /api/allNotes/noteId/${note._id}
 
-  const res = await fetch(`/api/updateNotebook/${note._id}`, {
+  const res = await fetch(`/api/notebook/updateNotebook/noteId/${note._id}`, {
     method: "PUT",
     headers: { "Content-type": "application / json" },
     body: note.note,
@@ -53,7 +54,7 @@ export const updateNoteHandler = async (note: NoteObj) => {
 };
 
 export const removeNoteHandler = async (noteId: string) => {
-  const res = await fetch(`/api/deleteNote/${noteId}`, {
+  const res = await fetch(`/api/notebook/deleteNote/noteId/${noteId}`, {
     method: "DELETE",
     headers: { "Content-type": "application/json" },
   });

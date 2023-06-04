@@ -1,6 +1,8 @@
-import * as fsPromises from "fs/promises";
 import type { GetServerSideProps, InferGetServerSidePropsType } from "next";
 import { Metadata } from "next";
+import * as fsPromises from "node:fs/promises";
+import * as path from "node:path";
+import * as process from "node:process";
 
 import { useRouter } from "next/router";
 import AllNotes from "../../components/VetsWhoCode_Components/AllNotes";
@@ -18,21 +20,9 @@ type NoteObj = {
   note: string;
 };
 
-export const getDBpath = () => {
-  const process = require("process");
-  const path = require("path");
-  const dbPath = path.join(process.cwd(), "database.json");
-  return dbPath;
-};
-
 export const getServerSideProps: GetServerSideProps<{
   notes: NoteObj[];
 }> = async () => {
-  // const fsPromises = require("fs/promises");
-  const process = require("process");
-  const path = require("path");
-
-
   const dbPath = path.join(process.cwd(), "database.json");
 
   const data = await fsPromises.readFile(dbPath, "utf8");

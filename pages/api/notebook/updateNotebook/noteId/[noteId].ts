@@ -1,16 +1,11 @@
 import { NextApiRequest, NextApiResponse } from "next";
-import * as process from "node:process";
-import * as path from "node:path";
 import * as fsPromises from "node:fs/promises";
+import * as path from "node:path";
+import * as process from "node:process";
 
-export async function handler(
-  req: NextApiRequest,
-  res: NextApiResponse
-) {
-
-
+export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
   // const dbDir = path.join(process.cwd(), "database");
-  const dbPath = path.join(process.cwd(), "database.json")
+  const dbPath = path.join(process.cwd(), "database.json");
   // const dbPath = path.relative(process.cwd(), "/database.json" )
   // const realPath = fsPromises.realpath("../../../../database.json");
 
@@ -20,13 +15,12 @@ export async function handler(
 
     const database = JSON.parse(data);
 
-    
     const newData = {
       _id: noteId,
       note: req.body,
     };
     const existingDataIndex = database.findIndex(
-      (note: { _id: string}) => note._id === noteId
+      (note: { _id: string }) => note._id === noteId
     );
 
     if (existingDataIndex !== -1) {
@@ -43,4 +37,4 @@ export async function handler(
   }
 }
 
-export default handler;
+export default updateHandler;
