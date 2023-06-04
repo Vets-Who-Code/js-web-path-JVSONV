@@ -33,10 +33,11 @@ export const getServerSideProps: GetServerSideProps<{
   const path = require("path");
 
   console.log(process.cwd());
-  const dbPath = path.join(process.cwd(), "database.json");
+  // const dbPath = path.join(process.cwd(), "database.json");
+  const dbPath = "/database/database.json"
   console.log(dbPath)
   // const realPath = await fsPromises.realpath("./database.json")
-  const data = await fsPromises.readFile("database.json", "utf8");
+  const data = await fsPromises.readFile(dbPath, "utf8");
   const database = JSON.parse(data);
   return {
     props: {
