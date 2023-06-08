@@ -1,17 +1,21 @@
-import Counter from "./Counter";
-import StarWars from "./StarWarsFetch";
+// import Counter from "./Counter";
+// import StarWars from "./StarWarsFetch";
 import jsArray from "./arrayManipulation";
 import objArrFunction, { newArr, randomNum } from "./tsArrayManipulation";
 
-const Main = () => {
+
+type Props = {
+  children: React.ReactNode;
+};
+
+const Main = (props: Props) => {
   jsArray();
 
   console.log(objArrFunction(newArr, randomNum));
 
   return (
     <main>
-      <Counter />
-      <StarWars />
+      {props.children}
     </main>
   );
 };
