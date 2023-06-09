@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useContext } from "react";
-import { ModalContext } from "../../pages/store/modalCtxProvider";
-import contact from "../../public/assets/icons/contact.webp"
+import contact from "../../../public/assets/icons/contact.webp";
+import { ModalContext } from "../../store/ModalCtxProvider";
 
 const MobileContactButton = () => {
   const modalCtx = useContext(ModalContext);

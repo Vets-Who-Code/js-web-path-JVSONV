@@ -1,8 +1,7 @@
 import Image from "next/image";
-import Link from "next/link";
-import plug from "../../public/assets/photos/imageOpt.webp";
-import vibeCheck from "../../public/assets/photos/imageOptimized.webp";
-import sheesh from "../../public/assets/photos/imageOptimized1.webp";
+import plug from "../../../public/assets/photos/imageOpt.webp";
+import vibeCheck from "../../../public/assets/photos/imageOptimized.webp";
+import sheesh from "../../../public/assets/photos/imageOptimized1.webp";
 
 const Projects = () => {
   return (
@@ -81,12 +80,6 @@ const Projects = () => {
           </li>
         </ul>
       </div>
-      <Link
-        className="course-work button"
-        href="/vetsWhoCode"
-        target="_blank">
-        Click here to view VetsWhoCode course work
-      </Link>
     </section>
   );
 };

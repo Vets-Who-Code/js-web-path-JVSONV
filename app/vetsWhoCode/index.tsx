@@ -5,10 +5,10 @@ import * as path from "node:path";
 import * as process from "node:process";
 
 import { useRouter } from "next/router";
-import AllNotes from "../../components/VetsWhoCode_Components/AllNotes";
-import Counter from "../../components/VetsWhoCode_Components/Counter";
-import Main from "../../components/VetsWhoCode_Components/Main";
-import StarWars from "../../components/VetsWhoCode_Components/StarWarsFetch";
+import AllNotes from "../components/VetsWhoCode_Components/AllNotes";
+import Counter from "../components/VetsWhoCode_Components/Counter";
+import Main from "../components/VetsWhoCode_Components/Main";
+import StarWars from "../components/VetsWhoCode_Components/StarWarsFetch";
 
 export const metadata: Metadata = {
   description: "Jason Vallery's VetsWhoCode Work",

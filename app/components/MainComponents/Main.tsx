@@ -6,8 +6,8 @@ const Main = () => {
   return (
     <main className="main">
       <Hero />
-      <Projects />
       <About />
+      <Projects />
     </main>
   );
 };

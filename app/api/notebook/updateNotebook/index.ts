@@ -11,6 +11,8 @@ export async function updateHandler(req: NextApiRequest, res: NextApiResponse) {
 
     const { _id } = sentNote;
 
+    console.log(dbPath)
+
     const data = await fsPromises.readFile(`${dbPath}`, {
       encoding: "utf8",
       flag: "r+",
