@@ -1,17 +1,18 @@
+type Props = {
+  commits: {}[];
+};
 
-
-const Github = () => {
-
-  const startDate = new Date("03/01/2023").getTime();
-  let currentDate = Date.now();
-  const millisecondsBetween = startDate - currentDate;
-
-  const numberOfDaysSince =  millisecondsBetween/ (1000 * 3600 * 24);
-
+const Github = (props: Props) => {
+  
 
   return (
-    <div>Github</div>
-  )
-}
+    <div>
+      Github
+      <ul>{props.commits.map(commit => {
+        return <li key={commit.node_id} >{commit.commit.message}</li>
+      })}</ul>
+    </div>
+  );
+};
 
 export default Github;
