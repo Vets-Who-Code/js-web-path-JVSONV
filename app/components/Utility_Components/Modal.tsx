@@ -1,8 +1,8 @@
 "use client";
 import Image from "next/image";
 import { useContext, useRef } from "react";
-import { ModalContext } from "../../pages/store/modalCtxProvider";
-import closeIcon from "/public/assets/icons/close.webp";
+import { ModalContext } from "../../store/ModalCtxProvider";
+import closeIcon from "../../../public/assets/icons/close.webp";
 
 const Modal = () => {
   const modalCtx = useContext(ModalContext);

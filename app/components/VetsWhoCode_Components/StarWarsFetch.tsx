@@ -36,7 +36,7 @@ const StarWars = () => {
 
     if (error !== null) setError(null);
 
-    const delay = new Promise<unknown>((resolve) => setTimeout(resolve, 1000));
+    const delay = new Promise((resolve) => setTimeout(resolve, 1000));
 
     setIsLoading(true);
 

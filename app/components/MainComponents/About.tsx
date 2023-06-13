@@ -1,7 +1,7 @@
 "use client";
 import Image from "next/image";
 import { useContext } from "react";
-import { ModalContext } from "../../pages/store/modalCtxProvider";
+import { ModalContext } from "../../store/ModalCtxProvider";
 import apex from "/public/assets/photos/companies/apex.webp";
 import costco from "/public/assets/photos/companies/costcologo.webp";
 import usmc from "/public/assets/photos/companies/marinecorps.webp";

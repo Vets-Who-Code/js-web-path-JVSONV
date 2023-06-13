@@ -2,9 +2,9 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useContext, useRef, useState } from "react";
-import closeIcon from "../../public/assets/icons/close.webp";
-import menuIcon from "../../public/assets/icons/menu.webp";
-import { ModalContext } from "../../pages/store/modalCtxProvider";
+import closeIcon from "../../../public/assets/icons/close.webp";
+import menuIcon from "../../../public/assets/icons/menu.webp";
+import { ModalContext } from "../../store/ModalCtxProvider";
 
 const Navigation = () => {
   const [isMobileNavOpen, setIsMobileNavOpen] = useState(false);
